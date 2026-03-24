@@ -1,0 +1,38 @@
+项目004/
+├── README.md
+├── package.json
+├── package-lock.json
+├── .env
+├── file_structure.txt
+├── project_documentation.txt
+├── convert_fbx_to_glb.py
+├── create_test_image.py
+├── backend/
+│   ├── __pycache__/
+│   ├── main.py
+│   └── requirements.txt
+├── frontend/
+│   ├── app.js
+│   ├── index.html
+│   ├── outfit.html
+│   ├── storage.js
+│   ├── style.css
+│   ├── suggestion.html
+│   ├── tryon.html
+│   └── assets/
+├── node_modules/
+├── test-results/
+├── test_images/
+├── test_api.py
+├── test_frontend.spec.js
+├── test_image_upload.py
+├── test_outfit.py
+├── test_qwen_api.py
+├── test_responsive.spec.js
+├── test_storage.html
+├── test_storage.js
+├── test_storage.py
+├── test_styles.py
+├── test_suggestion.py
+├── test_tryon.py
+└── test_wardrobe.py

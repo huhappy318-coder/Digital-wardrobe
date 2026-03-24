@@ -1,0 +1,17 @@
+{
+  "name": "closet-ai",
+  "version": "1.0.0",
+  "description": "ClosetAI 是一个基于 AI 的智能衣橱管理和穿搭推荐系统，帮助用户更好地管理衣物并获取个性化的穿搭建议。",
+  "main": "test_frontend.spec.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd frontend && python -m http.server 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

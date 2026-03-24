@@ -1,0 +1,29 @@
+项目文件结构
+
+ClosetAI/
+├── frontend/
+│   ├── index.html          # 首页
+│   ├── wardrobe.html       # 衣橱页面
+│   ├── outfit.html         # 穿搭页面
+│   ├── suggestion.html     # 建议页面
+│   ├── tryon.html          # 试衣间页面（新增）
+│   ├── style.css           # 全局样式
+│   ├── app.js              # 应用脚本
+│   ├── storage.js          # 本地存储脚本
+│   └── assets/
+│       └── models/
+│           ├── male.fbx    # 男性模型
+│           └── female.fbx  # 女性模型
+├── backend/
+│   ├── main.py             # 后端API
+│   └── requirements.txt    # Python依赖
+├── node_modules/           # 前端依赖（已安装）
+├── package.json            # 项目配置
+├── .gitignore              # Git忽略文件
+├── README.md               # 项目说明
+├── convert_fbx_to_glb.py   # FBX转GLB工具
+├── test_styles.py          # 样式测试脚本
+├── test_suggestion.py      # 建议页面测试
+├── test_tryon.py           # 试衣间页面测试
+└── test_wardrobe.py        # 衣橱页面测试
+

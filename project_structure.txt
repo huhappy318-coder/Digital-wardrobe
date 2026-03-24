@@ -1,0 +1,1216 @@
+﻿
+
+    目录: C:\Users\huawei\Desktop\项目004
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23     10:16                backend                                                              
+d-----         2026/3/23      9:35                frontend                                                             
+d-----         2026/3/23      9:35                node_modules                                                         
+d-----         2026/3/23     10:11                test-results                                                         
+d-----         2026/3/23      9:36                test_images                                                          
+-a----         2026/3/23     10:01             35 .env                                                                 
+-a----         2026/3/23      9:35           2098 convert_fbx_to_glb.py                                                
+-a----         2026/3/23      9:35            794 create_test_image.py                                                 
+-a----         2026/3/23     10:05          32846 debug_page_content.html                                              
+-a----         2026/3/23     10:05          59474 debug_screenshot.png                                                 
+-a----         2026/3/23      9:35           1235 file_structure.txt                                                   
+-a----         2026/3/23      9:36          48094 outfit_error.png                                                     
+-a----         2026/3/23      9:36          33058 outfit_page.png                                                      
+-a----         2026/3/23      9:36           2251 package-lock.json                                                    
+-a----         2026/3/23      9:56            505 package.json                                                         
+-a----         2026/3/23      9:36           3610 project_documentation.txt                                            
+-a----         2026/3/23     18:45              0 project_structure.txt                                                
+-a----         2026/3/23      9:35           4562 README.md                                                            
+-a----         2026/3/23      9:36          73771 suggestion_page.png                                                  
+-a----         2026/3/23     10:09           3339 test_api.py                                                          
+-a----         2026/3/23      9:36           1367 test_frontend.spec.js                                                
+-a----         2026/3/23      9:36           2401 test_image_upload.py                                                 
+-a----         2026/3/23      9:36           1207 test_outfit.py                                                       
+-a----         2026/3/23     10:10           3991 test_qwen_api.py                                                     
+-a----         2026/3/23      9:36           2055 test_responsive.spec.js                                              
+-a----         2026/3/23     10:08           6156 test_storage.html                                                    
+-a----         2026/3/23      9:36           7927 test_storage.js                                                      
+-a----         2026/3/23     10:07           1789 test_storage.py                                                      
+-a----         2026/3/23     10:08          54007 test_storage_initial.png                                             
+-a----         2026/3/23     10:08          95959 test_storage_results.png                                             
+-a----         2026/3/23      9:36           4196 test_styles.py                                                       
+-a----         2026/3/23      9:36           2078 test_suggestion.py                                                   
+-a----         2026/3/23      9:36           7470 test_tryon.py                                                        
+-a----         2026/3/23     10:13           1212 test_wardrobe.py                                                     
+-a----         2026/3/23     10:02           4253 tryon_error.png                                                      
+-a----         2026/3/23      9:36          50424 tryon_screenshot.png                                                 
+-a----         2026/3/23      9:36          60515 tryon_validation_error.png                                           
+-a----         2026/3/23      9:36          88249 wardrobe_analysis.png                                                
+-a----         2026/3/23      9:36          38619 wardrobe_initial.png                                                 
+-a----         2026/3/23     10:13          72703 wardrobe_page.png                                                    
+-a----         2026/3/23      9:36          59285 wardrobe_preview.png                                                 
+-a----         2026/3/23      9:36          90585 wardrobe_updated.png                                                 
+
+
+    目录: C:\Users\huawei\Desktop\项目004\backend
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23     10:15                __pycache__                                                          
+-a----         2026/3/23     10:16           4469 main.py                                                              
+-a----         2026/3/23      9:35             45 requirements.txt                                                     
+
+
+    目录: C:\Users\huawei\Desktop\项目004\backend\__pycache__
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23     10:15           7444 main.cpython-314.pyc                                                 
+
+
+    目录: C:\Users\huawei\Desktop\项目004\frontend
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                assets                                                               
+-a----         2026/3/23      9:35          13791 app.js                                                               
+-a----         2026/3/23      9:35          21767 index.html                                                           
+-a----         2026/3/23      9:35          32084 outfit.html                                                          
+-a----         2026/3/23      9:35           6257 storage.js                                                           
+-a----         2026/3/23      9:35          14368 style.css                                                            
+-a----         2026/3/23      9:35           6585 suggestion.html                                                      
+-a----         2026/3/23      9:35          29301 tryon.html                                                           
+-a----         2026/3/23      9:35          42758 wardrobe.html                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\frontend\assets
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                models                                                               
+
+
+    目录: C:\Users\huawei\Desktop\项目004\frontend\assets\models
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35        1750032 female.fbx                                                           
+-a----         2026/3/23      9:35        1982368 male.fbx                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                .bin                                                                 
+d-----         2026/3/23      9:35                @playwright                                                          
+d-----         2026/3/23      9:35                playwright                                                           
+d-----         2026/3/23      9:36                playwright-core                                                      
+-a----         2026/3/23      9:35           1609 .package-lock.json                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\.bin
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35            395 playwright                                                           
+-a----         2026/3/23      9:35            393 playwright-core                                                      
+-a----         2026/3/23      9:35            327 playwright-core.cmd                                                  
+-a----         2026/3/23      9:35            813 playwright-core.ps1                                                  
+-a----         2026/3/23      9:35            328 playwright.cmd                                                       
+-a----         2026/3/23      9:35            817 playwright.ps1                                                       
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\@playwright
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                test                                                                 
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\@playwright\test
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35            707 cli.js                                                               
+-a----         2026/3/23      9:35            679 index.d.ts                                                           
+-a----         2026/3/23      9:35            648 index.js                                                             
+-a----         2026/3/23      9:35            679 index.mjs                                                            
+-a----         2026/3/23      9:35          11601 LICENSE                                                              
+-a----         2026/3/23      9:35            254 NOTICE                                                               
+-a----         2026/3/23      9:35            754 package.json                                                         
+-a----         2026/3/23      9:35           8124 README.md                                                            
+-a----         2026/3/23      9:35            650 reporter.d.ts                                                        
+-a----         2026/3/23      9:35            645 reporter.js                                                          
+-a----         2026/3/23      9:35            645 reporter.mjs                                                         
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                lib                                                                  
+d-----         2026/3/23      9:35                types                                                                
+-a----         2026/3/23      9:35            698 cli.js                                                               
+-a----         2026/3/23      9:35            636 index.d.ts                                                           
+-a----         2026/3/23      9:35            648 index.js                                                             
+-a----         2026/3/23      9:35            704 index.mjs                                                            
+-a----         2026/3/23      9:35            942 jsx-runtime.js                                                       
+-a----         2026/3/23      9:35            764 jsx-runtime.mjs                                                      
+-a----         2026/3/23      9:35          11601 LICENSE                                                              
+-a----         2026/3/23      9:35            254 NOTICE                                                               
+-a----         2026/3/23      9:35           2238 package.json                                                         
+-a----         2026/3/23      9:35           8124 README.md                                                            
+-a----         2026/3/23      9:35            673 test.d.ts                                                            
+-a----         2026/3/23      9:35            806 test.js                                                              
+-a----         2026/3/23      9:35           1347 test.mjs                                                             
+-a----         2026/3/23      9:35         262774 ThirdPartyNotices.txt                                                
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                agents                                                               
+d-----         2026/3/23      9:35                common                                                               
+d-----         2026/3/23      9:35                isomorphic                                                           
+d-----         2026/3/23      9:35                loader                                                               
+d-----         2026/3/23      9:35                matchers                                                             
+d-----         2026/3/23      9:35                mcp                                                                  
+d-----         2026/3/23      9:35                plugins                                                              
+d-----         2026/3/23      9:35                reporters                                                            
+d-----         2026/3/23      9:35                runner                                                               
+d-----         2026/3/23      9:35                third_party                                                          
+d-----         2026/3/23      9:35                transform                                                            
+d-----         2026/3/23      9:35                worker                                                               
+-a----         2026/3/23      9:35           2527 fsWatcher.js                                                         
+-a----         2026/3/23      9:35          31981 index.js                                                             
+-a----         2026/3/23      9:35           2052 internalsForTest.js                                                  
+-a----         2026/3/23      9:35          22671 program.js                                                           
+-a----         2026/3/23      9:35          15311 util.js                                                              
+-a----         2026/3/23      9:35           1920 utilsBundle.js                                                       
+-a----         2026/3/23      9:35         316730 utilsBundleImpl.js                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\agents
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           3501 agentParser.js                                                       
+-a----         2026/3/23      9:35            646 copilot-setup-steps.yml                                              
+-a----         2026/3/23      9:35          14301 generateAgents.js                                                    
+-a----         2026/3/23      9:35           1294 playwright-test-coverage.prompt.md                                   
+-a----         2026/3/23      9:35            175 playwright-test-generate.prompt.md                                   
+-a----         2026/3/23      9:35           3336 playwright-test-generator.agent.md                                   
+-a----         2026/3/23      9:35            105 playwright-test-heal.prompt.md                                       
+-a----         2026/3/23      9:35           2847 playwright-test-healer.agent.md                                      
+-a----         2026/3/23      9:35            196 playwright-test-plan.prompt.md                                       
+-a----         2026/3/23      9:35           2757 playwright-test-planner.agent.md                                     
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\common
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          13777 config.js                                                            
+-a----         2026/3/23      9:35          16819 configLoader.js                                                      
+-a----         2026/3/23      9:35           4240 esmLoaderHost.js                                                     
+-a----         2026/3/23      9:35           1096 expectBundle.js                                                      
+-a----         2026/3/23      9:35         254330 expectBundleImpl.js                                                  
+-a----         2026/3/23      9:35          12524 fixtures.js                                                          
+-a----         2026/3/23      9:35           1935 globals.js                                                           
+-a----         2026/3/23      9:35           2527 ipc.js                                                               
+-a----         2026/3/23      9:35           3234 poolBuilder.js                                                       
+-a----         2026/3/23      9:35           4561 process.js                                                           
+-a----         2026/3/23      9:35           6820 suiteUtils.js                                                        
+-a----         2026/3/23      9:35           8896 test.js                                                              
+-a----         2026/3/23      9:35           4045 testLoader.js                                                        
+-a----         2026/3/23      9:35          13797 testType.js                                                          
+-a----         2026/3/23      9:35           2529 validators.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\isomorphic
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           2392 events.js                                                            
+-a----         2026/3/23      9:35           1162 folders.js                                                           
+-a----         2026/3/23      9:35           2079 stringInternPool.js                                                  
+-a----         2026/3/23      9:35          16148 teleReceiver.js                                                      
+-a----         2026/3/23      9:35           5275 teleSuiteUpdater.js                                                  
+-a----         2026/3/23      9:35           7606 testServerConnection.js                                              
+-a----         2026/3/23      9:35            769 testServerInterface.js                                               
+-a----         2026/3/23      9:35          11608 testTree.js                                                          
+-a----         2026/3/23      9:35            745 types.d.js                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\loader
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           2397 loaderMain.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\matchers
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          12887 expect.js                                                            
+-a----         2026/3/23      9:35           1698 matcherHint.js                                                       
+-a----         2026/3/23      9:35          19250 matchers.js                                                          
+-a----         2026/3/23      9:35           2398 toBeTruthy.js                                                        
+-a----         2026/3/23      9:35           3104 toEqual.js                                                           
+-a----         2026/3/23      9:35           3555 toHaveURL.js                                                         
+-a----         2026/3/23      9:35           7022 toMatchAriaSnapshot.js                                               
+-a----         2026/3/23      9:35          17372 toMatchSnapshot.js                                                   
+-a----         2026/3/23      9:35           4174 toMatchText.js                                                       
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                browser                                                              
+d-----         2026/3/23      9:35                extension                                                            
+d-----         2026/3/23      9:35                sdk                                                                  
+d-----         2026/3/23      9:35                terminal                                                             
+d-----         2026/3/23      9:35                test                                                                 
+-a----         2026/3/23      9:35            747 config.d.js                                                          
+-a----         2026/3/23      9:35           2760 index.js                                                             
+-a----         2026/3/23      9:35           1350 log.js                                                               
+-a----         2026/3/23      9:35          11071 program.js                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\browser
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                tools                                                                
+-a----         2026/3/23      9:35          13747 browserContextFactory.js                                             
+-a----         2026/3/23      9:35           3067 browserServerBackend.js                                              
+-a----         2026/3/23      9:35          16029 config.js                                                            
+-a----         2026/3/23      9:35           8962 context.js                                                           
+-a----         2026/3/23      9:35          10705 response.js                                                          
+-a----         2026/3/23      9:35           3046 sessionLog.js                                                        
+-a----         2026/3/23      9:35          11909 tab.js                                                               
+-a----         2026/3/23      9:35           3573 tools.js                                                             
+-a----         2026/3/23      9:35           1629 watchdog.js                                                          
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\browser\tools
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           2353 common.js                                                            
+-a----         2026/3/23      9:35           2006 console.js                                                           
+-a----         2026/3/23      9:35           2196 dialogs.js                                                           
+-a----         2026/3/23      9:35           2813 evaluate.js                                                          
+-a----         2026/3/23      9:35           2231 files.js                                                             
+-a----         2026/3/23      9:35           2942 form.js                                                              
+-a----         2026/3/23      9:35           3197 install.js                                                           
+-a----         2026/3/23      9:35           4169 keyboard.js                                                          
+-a----         2026/3/23      9:35           4188 mouse.js                                                             
+-a----         2026/3/23      9:35           2264 navigate.js                                                          
+-a----         2026/3/23      9:35           2728 network.js                                                           
+-a----         2026/3/23      9:35           1971 open.js                                                              
+-a----         2026/3/23      9:35           2004 pdf.js                                                               
+-a----         2026/3/23      9:35           3362 runCode.js                                                           
+-a----         2026/3/23      9:35           5263 screenshot.js                                                        
+-a----         2026/3/23      9:35           6769 snapshot.js                                                          
+-a----         2026/3/23      9:35           2378 tabs.js                                                              
+-a----         2026/3/23      9:35           1796 tool.js                                                              
+-a----         2026/3/23      9:35           2678 tracing.js                                                           
+-a----         2026/3/23      9:35           3326 utils.js                                                             
+-a----         2026/3/23      9:35           6336 verify.js                                                            
+-a----         2026/3/23      9:35           2768 wait.js                                                              
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\extension
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          13461 cdpRelay.js                                                          
+-a----         2026/3/23      9:35           3493 extensionContextFactory.js                                           
+-a----         2026/3/23      9:35           1053 protocol.js                                                          
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\sdk
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           1365 exports.js                                                           
+-a----         2026/3/23      9:35           6256 http.js                                                              
+-a----         2026/3/23      9:35           2208 inProcessTransport.js                                                
+-a----         2026/3/23      9:35           7600 server.js                                                            
+-a----         2026/3/23      9:35           1591 tool.js                                                              
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\terminal
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          10303 cli.js                                                               
+-a----         2026/3/23      9:35           2074 command.js                                                           
+-a----         2026/3/23      9:35          14072 commands.js                                                          
+-a----         2026/3/23      9:35           4845 daemon.js                                                            
+-a----         2026/3/23      9:35           7895 help.json                                                            
+-a----         2026/3/23      9:35           3547 helpGenerator.js                                                     
+-a----         2026/3/23      9:35           2579 socketConnection.js                                                  
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\mcp\test
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           3836 browserBackend.js                                                    
+-a----         2026/3/23      9:35           5486 generatorTools.js                                                    
+-a----         2026/3/23      9:35           6350 plannerTools.js                                                      
+-a----         2026/3/23      9:35           3242 seed.js                                                              
+-a----         2026/3/23      9:35           1577 streams.js                                                           
+-a----         2026/3/23      9:35           4006 testBackend.js                                                       
+-a----         2026/3/23      9:35          10864 testContext.js                                                       
+-a----         2026/3/23      9:35           1104 testTool.js                                                          
+-a----         2026/3/23      9:35           4498 testTools.js                                                         
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\plugins
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           6841 gitCommitInfoPlugin.js                                               
+-a----         2026/3/23      9:35           1119 index.js                                                             
+-a----         2026/3/23      9:35          10150 webServerPlugin.js                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\reporters
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                versions                                                             
+-a----         2026/3/23      9:35          24353 base.js                                                              
+-a----         2026/3/23      9:35           5810 blob.js                                                              
+-a----         2026/3/23      9:35           3374 dot.js                                                               
+-a----         2026/3/23      9:35           1066 empty.js                                                             
+-a----         2026/3/23      9:35           4898 github.js                                                            
+-a----         2026/3/23      9:35          25599 html.js                                                              
+-a----         2026/3/23      9:35           5172 internalReporter.js                                                  
+-a----         2026/3/23      9:35           9054 json.js                                                              
+-a----         2026/3/23      9:35           8580 junit.js                                                             
+-a----         2026/3/23      9:35           4922 line.js                                                              
+-a----         2026/3/23      9:35           9854 list.js                                                              
+-a----         2026/3/23      9:35           3058 listModeReporter.js                                                  
+-a----         2026/3/23      9:35           5459 markdown.js                                                          
+-a----         2026/3/23      9:35          19823 merge.js                                                             
+-a----         2026/3/23      9:35           3440 multiplexer.js                                                       
+-a----         2026/3/23      9:35           3037 reporterV2.js                                                        
+-a----         2026/3/23      9:35          10449 teleEmitter.js                                                       
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\reporters\versions
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35            743 blobV1.js                                                            
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\runner
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          20801 dispatcher.js                                                        
+-a----         2026/3/23      9:35           2462 failureTracker.js                                                    
+-a----         2026/3/23      9:35           3042 lastRun.js                                                           
+-a----         2026/3/23      9:35           3683 loaderHost.js                                                        
+-a----         2026/3/23      9:35          15954 loadUtils.js                                                         
+-a----         2026/3/23      9:35           6813 processHost.js                                                       
+-a----         2026/3/23      9:35           9688 projectUtils.js                                                      
+-a----         2026/3/23      9:35           7609 rebase.js                                                            
+-a----         2026/3/23      9:35           5892 reporters.js                                                         
+-a----         2026/3/23      9:35           2726 sigIntWatcher.js                                                     
+-a----         2026/3/23      9:35           3707 storage.js                                                           
+-a----         2026/3/23      9:35           4662 taskRunner.js                                                        
+-a----         2026/3/23      9:35          17284 tasks.js                                                             
+-a----         2026/3/23      9:35           4775 testGroups.js                                                        
+-a----         2026/3/23      9:35          17764 testRunner.js                                                        
+-a----         2026/3/23      9:35          11073 testServer.js                                                        
+-a----         2026/3/23      9:35           1223 uiModeReporter.js                                                    
+-a----         2026/3/23      9:35           3421 vcs.js                                                               
+-a----         2026/3/23      9:35          15810 watchMode.js                                                         
+-a----         2026/3/23      9:35           3979 workerHost.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\third_party
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           2735 pirates.js                                                           
+-a----         2026/3/23      9:35           4645 tsconfig-loader.js                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\transform
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           1748 babelBundle.js                                                       
+-a----         2026/3/23      9:35        1401933 babelBundleImpl.js                                                   
+-a----         2026/3/23      9:35          11108 compilationCache.js                                                  
+-a----         2026/3/23      9:35           4648 esmLoader.js                                                         
+-a----         2026/3/23      9:35          10550 md.js                                                                
+-a----         2026/3/23      9:35           2157 portTransport.js                                                     
+-a----         2026/3/23      9:35          12442 transform.js                                                         
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\lib\worker
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           9868 fixtureRunner.js                                                     
+-a----         2026/3/23      9:35          23425 testInfo.js                                                          
+-a----         2026/3/23      9:35          13164 testTracing.js                                                       
+-a----         2026/3/23      9:35           6467 timeoutManager.js                                                    
+-a----         2026/3/23      9:35           1161 util.js                                                              
+-a----         2026/3/23      9:35          22366 workerMain.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright\types
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35         365726 test.d.ts                                                            
+-a----         2026/3/23      9:35          27881 testReporter.d.ts                                                    
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                bin                                                                  
+d-----         2026/3/23      9:36                lib                                                                  
+d-----         2026/3/23      9:36                types                                                                
+-a----         2026/3/23      9:36           1883 browsers.json                                                        
+-a----         2026/3/23      9:36            713 cli.js                                                               
+-a----         2026/3/23      9:36            634 index.d.ts                                                           
+-a----         2026/3/23      9:36           1095 index.js                                                             
+-a----         2026/3/23      9:36           1063 index.mjs                                                            
+-a----         2026/3/23      9:35          11601 LICENSE                                                              
+-a----         2026/3/23      9:35            254 NOTICE                                                               
+-a----         2026/3/23      9:36           1499 package.json                                                         
+-a----         2026/3/23      9:36            120 README.md                                                            
+-a----         2026/3/23      9:36         198280 ThirdPartyNotices.txt                                                
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\bin
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36            174 install_media_pack.ps1                                               
+-a----         2026/3/23      9:36           1464 install_webkit_wsl.ps1                                               
+-a----         2026/3/23      9:36           1214 reinstall_chrome_beta_linux.sh                                       
+-a----         2026/3/23      9:36            560 reinstall_chrome_beta_mac.sh                                         
+-a----         2026/3/23      9:36            957 reinstall_chrome_beta_win.ps1                                        
+-a----         2026/3/23      9:36           1209 reinstall_chrome_stable_linux.sh                                     
+-a----         2026/3/23      9:36            516 reinstall_chrome_stable_mac.sh                                       
+-a----         2026/3/23      9:36            923 reinstall_chrome_stable_win.ps1                                      
+-a----         2026/3/23      9:36           1491 reinstall_msedge_beta_linux.sh                                       
+-a----         2026/3/23      9:36            374 reinstall_msedge_beta_mac.sh                                         
+-a----         2026/3/23      9:36            874 reinstall_msedge_beta_win.ps1                                        
+-a----         2026/3/23      9:36           1486 reinstall_msedge_dev_linux.sh                                        
+-a----         2026/3/23      9:36            369 reinstall_msedge_dev_mac.sh                                          
+-a----         2026/3/23      9:36            869 reinstall_msedge_dev_win.ps1                                         
+-a----         2026/3/23      9:36           1504 reinstall_msedge_stable_linux.sh                                     
+-a----         2026/3/23      9:36            368 reinstall_msedge_stable_mac.sh                                       
+-a----         2026/3/23      9:36            856 reinstall_msedge_stable_win.ps1                                      
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                cli                                                                  
+d-----         2026/3/23      9:36                client                                                               
+d-----         2026/3/23      9:36                generated                                                            
+d-----         2026/3/23      9:36                mcpBundleImpl                                                        
+d-----         2026/3/23      9:36                protocol                                                             
+d-----         2026/3/23      9:36                remote                                                               
+d-----         2026/3/23      9:36                server                                                               
+d-----         2026/3/23      9:36                third_party                                                          
+d-----         2026/3/23      9:36                utils                                                                
+d-----         2026/3/23      9:35                utilsBundleImpl                                                      
+d-----         2026/3/23      9:35                vite                                                                 
+-a----         2026/3/23      9:36           3036 androidServerImpl.js                                                 
+-a----         2026/3/23      9:36           6063 browserServerImpl.js                                                 
+-a----         2026/3/23      9:36            150 inprocess.js                                                         
+-a----         2026/3/23      9:36           3146 inProcessFactory.js                                                  
+-a----         2026/3/23      9:36           3561 mcpBundle.js                                                         
+-a----         2026/3/23      9:36           3350 outofprocess.js                                                      
+-a----         2026/3/23      9:36           6392 utils.js                                                             
+-a----         2026/3/23      9:36           3461 utilsBundle.js                                                       
+-a----         2026/3/23      9:36           1242 zipBundle.js                                                         
+-a----         2026/3/23      9:36          54340 zipBundleImpl.js                                                     
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\cli
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           4221 driver.js                                                            
+-a----         2026/3/23      9:36          27374 program.js                                                           
+-a----         2026/3/23      9:36           3192 programWithTestStub.js                                               
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\client
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36          13665 android.js                                                           
+-a----         2026/3/23      9:36           4762 api.js                                                               
+-a----         2026/3/23      9:36           2756 artifact.js                                                          
+-a----         2026/3/23      9:36           6111 browser.js                                                           
+-a----         2026/3/23      9:36          25667 browserContext.js                                                    
+-a----         2026/3/23      9:36           9014 browserType.js                                                       
+-a----         2026/3/23      9:36           1790 cdpSession.js                                                        
+-a----         2026/3/23      9:36           7703 channelOwner.js                                                      
+-a----         2026/3/23      9:36           2318 clientHelper.js                                                      
+-a----         2026/3/23      9:36           1986 clientInstrumentation.js                                             
+-a----         2026/3/23      9:36           2525 clientStackTrace.js                                                  
+-a----         2026/3/23      9:36           2316 clock.js                                                             
+-a----         2026/3/23      9:36          12449 connection.js                                                        
+-a----         2026/3/23      9:36           1703 consoleMessage.js                                                    
+-a----         2026/3/23      9:36           1486 coverage.js                                                          
+-a----         2026/3/23      9:36           1741 dialog.js                                                            
+-a----         2026/3/23      9:36           1807 download.js                                                          
+-a----         2026/3/23      9:36           6154 electron.js                                                          
+-a----         2026/3/23      9:36          11782 elementHandle.js                                                     
+-a----         2026/3/23      9:36           2683 errors.js                                                            
+-a----         2026/3/23      9:36           9931 eventEmitter.js                                                      
+-a----         2026/3/23      9:36           2862 events.js                                                            
+-a----         2026/3/23      9:36          13552 fetch.js                                                             
+-a----         2026/3/23      9:36           1474 fileChooser.js                                                       
+-a----         2026/3/23      9:36           1340 fileUtils.js                                                         
+-a----         2026/3/23      9:36          19494 frame.js                                                             
+-a----         2026/3/23      9:36           3035 harRouter.js                                                         
+-a----         2026/3/23      9:36           2503 input.js                                                             
+-a----         2026/3/23      9:36           3947 jsHandle.js                                                          
+-a----         2026/3/23      9:36           1350 jsonPipe.js                                                          
+-a----         2026/3/23      9:36           2079 localUtils.js                                                        
+-a----         2026/3/23      9:36          15282 locator.js                                                           
+-a----         2026/3/23      9:36          25064 network.js                                                           
+-a----         2026/3/23      9:36          31020 page.js                                                              
+-a----         2026/3/23      9:36           2450 pageAgent.js                                                         
+-a----         2026/3/23      9:36           2307 platform.js                                                          
+-a----         2026/3/23      9:36           2923 playwright.js                                                        
+-a----         2026/3/23      9:36           2337 selectors.js                                                         
+-a----         2026/3/23      9:36           1364 stream.js                                                            
+-a----         2026/3/23      9:36           2654 timeoutSettings.js                                                   
+-a----         2026/3/23      9:36           4393 tracing.js                                                           
+-a----         2026/3/23      9:36           1157 types.js                                                             
+-a----         2026/3/23      9:36           2124 video.js                                                             
+-a----         2026/3/23      9:36           4841 waiter.js                                                            
+-a----         2026/3/23      9:36           1215 webError.js                                                          
+-a----         2026/3/23      9:36           3118 webSocket.js                                                         
+-a----         2026/3/23      9:36           4062 worker.js                                                            
+-a----         2026/3/23      9:36           1418 writableStream.js                                                    
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\generated
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           9144 bindingsControllerSource.js                                          
+-a----         2026/3/23      9:36          21308 clockSource.js                                                       
+-a----         2026/3/23      9:36         314611 injectedScriptSource.js                                              
+-a----         2026/3/23      9:36          72840 pollingRecorderSource.js                                             
+-a----         2026/3/23      9:36          15484 storageScriptSource.js                                               
+-a----         2026/3/23      9:36          11527 utilityScriptSource.js                                               
+-a----         2026/3/23      9:36          12109 webSocketMockSource.js                                               
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\mcpBundleImpl
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36         681755 index.js                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\protocol
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           6919 serializers.js                                                       
+-a----         2026/3/23      9:36         224835 validator.js                                                         
+-a----         2026/3/23      9:36           6051 validatorPrimitives.js                                               
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\remote
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           5916 playwrightConnection.js                                              
+-a----         2026/3/23      9:36          13231 playwrightServer.js                                                  
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                agent                                                                
+d-----         2026/3/23      9:35                android                                                              
+d-----         2026/3/23      9:35                bidi                                                                 
+d-----         2026/3/23      9:35                chromium                                                             
+d-----         2026/3/23      9:36                codegen                                                              
+d-----         2026/3/23      9:35                dispatchers                                                          
+d-----         2026/3/23      9:36                electron                                                             
+d-----         2026/3/23      9:36                firefox                                                              
+d-----         2026/3/23      9:36                har                                                                  
+d-----         2026/3/23      9:35                recorder                                                             
+d-----         2026/3/23      9:35                registry                                                             
+d-----         2026/3/23      9:36                trace                                                                
+d-----         2026/3/23      9:35                utils                                                                
+d-----         2026/3/23      9:36                webkit                                                               
+-a----         2026/3/23      9:35           4485 artifact.js                                                          
+-a----         2026/3/23      9:35           5788 browser.js                                                           
+-a----         2026/3/23      9:35          26900 browserContext.js                                                    
+-a----         2026/3/23      9:35          15435 browserType.js                                                       
+-a----         2026/3/23      9:35           2861 callLog.js                                                           
+-a----         2026/3/23      9:35           6495 clock.js                                                             
+-a----         2026/3/23      9:35           1676 console.js                                                           
+-a----         2026/3/23      9:35           5881 cookieStore.js                                                       
+-a----         2026/3/23      9:36           7975 debugController.js                                                   
+-a----         2026/3/23      9:36           4112 debugger.js                                                          
+-a----         2026/3/23      9:36           1843 deviceDescriptors.js                                                 
+-a----         2026/3/23      9:36          54125 deviceDescriptorsSource.json                                         
+-a----         2026/3/23      9:36           3677 dialog.js                                                            
+-a----         2026/3/23      9:36          35176 dom.js                                                               
+-a----         2026/3/23      9:36           2931 download.js                                                          
+-a----         2026/3/23      9:36           2459 errors.js                                                            
+-a----         2026/3/23      9:36          25100 fetch.js                                                             
+-a----         2026/3/23      9:36           1367 fileChooser.js                                                       
+-a----         2026/3/23      9:36           3938 fileUploadUtils.js                                                   
+-a----         2026/3/23      9:36           3220 formData.js                                                          
+-a----         2026/3/23      9:36          62048 frames.js                                                            
+-a----         2026/3/23      9:36           7506 frameSelectors.js                                                    
+-a----         2026/3/23      9:36           5977 harBackend.js                                                        
+-a----         2026/3/23      9:36           3886 helper.js                                                            
+-a----         2026/3/23      9:36           2501 index.js                                                             
+-a----         2026/3/23      9:36          10219 input.js                                                             
+-a----         2026/3/23      9:36           2690 instrumentation.js                                                   
+-a----         2026/3/23      9:36          10769 javascript.js                                                        
+-a----         2026/3/23      9:36           5636 launchApp.js                                                         
+-a----         2026/3/23      9:36           9017 localUtils.js                                                        
+-a----         2026/3/23      9:36           6337 macEditingCommands.js                                                
+-a----         2026/3/23      9:36          21960 network.js                                                           
+-a----         2026/3/23      9:36          33146 page.js                                                              
+-a----         2026/3/23      9:36           2989 pipeTransport.js                                                     
+-a----         2026/3/23      9:36           2950 playwright.js                                                        
+-a----         2026/3/23      9:36           4736 progress.js                                                          
+-a----         2026/3/23      9:36           1842 protocolError.js                                                     
+-a----         2026/3/23      9:36          18720 recorder.js                                                          
+-a----         2026/3/23      9:36           6901 screencast.js                                                        
+-a----         2026/3/23      9:36          14430 screenshotter.js                                                     
+-a----         2026/3/23      9:36           3851 selectors.js                                                         
+-a----         2026/3/23      9:36          15409 socksClientCertificatesInterceptor.js                                
+-a----         2026/3/23      9:36           4641 socksInterceptor.js                                                  
+-a----         2026/3/23      9:36           6697 transport.js                                                         
+-a----         2026/3/23      9:36           1157 types.js                                                             
+-a----         2026/3/23      9:36           7907 usKeyboardLayout.js                                                  
+-a----         2026/3/23      9:36           4886 videoRecorder.js                                                     
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\agent
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          13325 actionRunner.js                                                      
+-a----         2026/3/23      9:35           4998 actions.js                                                           
+-a----         2026/3/23      9:35           5291 codegen.js                                                           
+-a----         2026/3/23      9:35           5313 context.js                                                           
+-a----         2026/3/23      9:35           6871 expectTools.js                                                       
+-a----         2026/3/23      9:35           9120 pageAgent.js                                                         
+-a----         2026/3/23      9:35          10142 performTools.js                                                      
+-a----         2026/3/23      9:35           3489 tool.js                                                              
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\android
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          18859 android.js                                                           
+-a----         2026/3/23      9:35           6531 backendAdb.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\bidi
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                third_party                                                          
+-a----         2026/3/23      9:35          20325 bidiBrowser.js                                                       
+-a----         2026/3/23      9:35           6803 bidiChromium.js                                                      
+-a----         2026/3/23      9:35           8276 bidiConnection.js                                                    
+-a----         2026/3/23      9:35           4270 bidiDeserializer.js                                                  
+-a----         2026/3/23      9:35          10613 bidiExecutionContext.js                                              
+-a----         2026/3/23      9:35           5553 bidiFirefox.js                                                       
+-a----         2026/3/23      9:35           4987 bidiInput.js                                                         
+-a----         2026/3/23      9:35          15009 bidiNetworkManager.js                                                
+-a----         2026/3/23      9:35           3555 bidiOverCdp.js                                                       
+-a----         2026/3/23      9:35          23095 bidiPage.js                                                          
+-a----         2026/3/23      9:35           3537 bidiPdf.js                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\bidi\third_party
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35            902 bidiCommands.d.js                                                    
+-a----         2026/3/23      9:35           5606 bidiKeyboard.js                                                      
+-a----         2026/3/23      9:35           1239 bidiProtocol.js                                                      
+-a----         2026/3/23      9:35           7106 bidiProtocolCore.js                                                  
+-a----         2026/3/23      9:35           1585 bidiProtocolPermissions.js                                           
+-a----         2026/3/23      9:35           4093 bidiSerializer.js                                                    
+-a----         2026/3/23      9:35          12079 firefoxPrefs.js                                                      
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\chromium
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          16565 appIcon.png                                                          
+-a----         2026/3/23      9:35          18246 chromium.js                                                          
+-a----         2026/3/23      9:35           4566 chromiumSwitches.js                                                  
+-a----         2026/3/23      9:35          20452 crBrowser.js                                                         
+-a----         2026/3/23      9:35           7512 crConnection.js                                                      
+-a----         2026/3/23      9:35           8886 crCoverage.js                                                        
+-a----         2026/3/23      9:35           4426 crDevTools.js                                                        
+-a----         2026/3/23      9:35           4972 crDragDrop.js                                                        
+-a----         2026/3/23      9:35           6627 crExecutionContext.js                                                
+-a----         2026/3/23      9:35           6600 crInput.js                                                           
+-a----         2026/3/23      9:35          31556 crNetworkManager.js                                                  
+-a----         2026/3/23      9:35          43750 crPage.js                                                            
+-a----         2026/3/23      9:35           3954 crPdf.js                                                             
+-a----         2026/3/23      9:35           5456 crProtocolHelper.js                                                  
+-a----         2026/3/23      9:35           5853 crServiceWorker.js                                                   
+-a----         2026/3/23      9:35           4406 defaultFontFamilies.js                                               
+-a----         2026/3/23      9:35            751 protocol.d.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\codegen
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35          12857 csharp.js                                                            
+-a----         2026/3/23      9:35          12089 java.js                                                              
+-a----         2026/3/23      9:36          11168 javascript.js                                                        
+-a----         2026/3/23      9:36           1751 jsonl.js                                                             
+-a----         2026/3/23      9:36           4183 language.js                                                          
+-a----         2026/3/23      9:36           2210 languages.js                                                         
+-a----         2026/3/23      9:36          11133 python.js                                                            
+-a----         2026/3/23      9:36            741 types.js                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\dispatchers
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           9938 androidDispatcher.js                                                 
+-a----         2026/3/23      9:35           4542 artifactDispatcher.js                                                
+-a----         2026/3/23      9:35          19759 browserContextDispatcher.js                                          
+-a----         2026/3/23      9:35           5727 browserDispatcher.js                                                 
+-a----         2026/3/23      9:35           3023 browserTypeDispatcher.js                                             
+-a----         2026/3/23      9:35           1904 cdpSessionDispatcher.js                                              
+-a----         2026/3/23      9:35           3449 debugControllerDispatcher.js                                         
+-a----         2026/3/23      9:35           1795 dialogDispatcher.js                                                  
+-a----         2026/3/23      9:35          14828 dispatcher.js                                                        
+-a----         2026/3/23      9:35           4180 electronDispatcher.js                                                
+-a----         2026/3/23      9:35           7941 elementHandlerDispatcher.js                                          
+-a----         2026/3/23      9:35          11406 frameDispatcher.js                                                   
+-a----         2026/3/23      9:35           3784 jsHandleDispatcher.js                                                
+-a----         2026/3/23      9:35           1940 jsonPipeDispatcher.js                                                
+-a----         2026/3/23      9:35           6427 localUtilsDispatcher.js                                              
+-a----         2026/3/23      9:35           8420 networkDispatchers.js                                                
+-a----         2026/3/23      9:35           4381 pageAgentDispatcher.js                                               
+-a----         2026/3/23      9:35          17481 pageDispatcher.js                                                    
+-a----         2026/3/23      9:35           5368 playwrightDispatcher.js                                              
+-a----         2026/3/23      9:35           2553 streamDispatcher.js                                                  
+-a----         2026/3/23      9:35           2553 tracingDispatcher.js                                                 
+-a----         2026/3/23      9:35           8325 webSocketRouteDispatcher.js                                          
+-a----         2026/3/23      9:35           3463 writableStreamDispatcher.js                                          
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\electron
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36          11952 electron.js                                                          
+-a----         2026/3/23      9:36            975 loader.js                                                            
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\firefox
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36          18333 ffBrowser.js                                                         
+-a----         2026/3/23      9:36           5187 ffConnection.js                                                      
+-a----         2026/3/23      9:36           6489 ffExecutionContext.js                                                
+-a----         2026/3/23      9:36           4582 ffInput.js                                                           
+-a----         2026/3/23      9:36           9970 ffNetworkManager.js                                                  
+-a----         2026/3/23      9:36          22526 ffPage.js                                                            
+-a----         2026/3/23      9:36           5221 firefox.js                                                           
+-a----         2026/3/23      9:36            751 protocol.d.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\har
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           5692 harRecorder.js                                                       
+-a----         2026/3/23      9:36          24339 harTracer.js                                                         
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\recorder
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           4751 chat.js                                                              
+-a----         2026/3/23      9:35          15754 recorderApp.js                                                       
+-a----         2026/3/23      9:35           4911 recorderRunner.js                                                    
+-a----         2026/3/23      9:35           2873 recorderSignalProcessor.js                                           
+-a----         2026/3/23      9:35           6104 recorderUtils.js                                                     
+-a----         2026/3/23      9:35           2118 throttledFile.js                                                     
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\registry
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           7536 browserFetcher.js                                                    
+-a----         2026/3/23      9:35          15869 dependencies.js                                                      
+-a----         2026/3/23      9:35          70280 index.js                                                             
+-a----         2026/3/23      9:35          36477 nativeDeps.js                                                        
+-a----         2026/3/23      9:35           5276 oopDownloadBrowserMain.js                                            
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\trace
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                recorder                                                             
+d-----         2026/3/23      9:36                viewer                                                               
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\trace\recorder
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           5843 snapshotter.js                                                       
+-a----         2026/3/23      9:36          22105 snapshotterInjected.js                                               
+-a----         2026/3/23      9:36          22429 tracing.js                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\trace\viewer
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           2579 traceParser.js                                                       
+-a----         2026/3/23      9:36          10061 traceViewer.js                                                       
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\utils
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                image_tools                                                          
+-a----         2026/3/23      9:35           1751 ascii.js                                                             
+-a----         2026/3/23      9:35           7082 comparators.js                                                       
+-a----         2026/3/23      9:35           7581 crypto.js                                                            
+-a----         2026/3/23      9:35           1494 debug.js                                                             
+-a----         2026/3/23      9:35           3838 debugLogger.js                                                       
+-a----         2026/3/23      9:35           2500 env.js                                                               
+-a----         2026/3/23      9:35           1465 eventsHelper.js                                                      
+-a----         2026/3/23      9:35           5190 expectUtils.js                                                       
+-a----         2026/3/23      9:35           6681 fileUtils.js                                                         
+-a----         2026/3/23      9:35           7423 happyEyeballs.js                                                     
+-a----         2026/3/23      9:35           6612 hostPlatform.js                                                      
+-a----         2026/3/23      9:35           7714 httpServer.js                                                        
+-a----         2026/3/23      9:35           5468 imageUtils.js                                                        
+-a----         2026/3/23      9:35           2740 linuxUtils.js                                                        
+-a----         2026/3/23      9:35           8787 network.js                                                           
+-a----         2026/3/23      9:35           5392 nodePlatform.js                                                      
+-a----         2026/3/23      9:35           2848 pipeTransport.js                                                     
+-a----         2026/3/23      9:35           9325 processLauncher.js                                                   
+-a----         2026/3/23      9:35           2516 profiler.js                                                          
+-a----         2026/3/23      9:35          17519 socksProxy.js                                                        
+-a----         2026/3/23      9:35           1683 spawnAsync.js                                                        
+-a----         2026/3/23      9:35           1607 task.js                                                              
+-a----         2026/3/23      9:35           4151 userAgent.js                                                         
+-a----         2026/3/23      9:35           4569 wsServer.js                                                          
+-a----         2026/3/23      9:35           2399 zipFile.js                                                           
+-a----         2026/3/23      9:35           1916 zones.js                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\utils\image_tools
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35           3015 colorUtils.js                                                        
+-a----         2026/3/23      9:35           4607 compare.js                                                           
+-a----         2026/3/23      9:35           2903 imageChannel.js                                                      
+-a----         2026/3/23      9:35           4019 stats.js                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\server\webkit
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36            751 protocol.d.js                                                        
+-a----         2026/3/23      9:36           4954 webkit.js                                                            
+-a----         2026/3/23      9:36          14081 wkBrowser.js                                                         
+-a----         2026/3/23      9:36           5206 wkConnection.js                                                      
+-a----         2026/3/23      9:36           6316 wkExecutionContext.js                                                
+-a----         2026/3/23      9:36           5876 wkInput.js                                                           
+-a----         2026/3/23      9:36           7645 wkInterceptableRequest.js                                            
+-a----         2026/3/23      9:36          52314 wkPage.js                                                            
+-a----         2026/3/23      9:36           3648 wkProvisionalPage.js                                                 
+-a----         2026/3/23      9:36           4353 wkWorkers.js                                                         
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\third_party
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           9501 pixelmatch.js                                                        
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\utils
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                isomorphic                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\utils\isomorphic
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                trace                                                                
+-a----         2026/3/23      9:36          15015 ariaSnapshot.js                                                      
+-a----         2026/3/23      9:36           1126 assert.js                                                            
+-a----         2026/3/23      9:36           2395 colors.js                                                            
+-a----         2026/3/23      9:36           9239 cssParser.js                                                         
+-a----         2026/3/23      9:36          26850 cssTokenizer.js                                                      
+-a----         2026/3/23      9:36           1895 headers.js                                                           
+-a----         2026/3/23      9:36          26382 locatorGenerators.js                                                 
+-a----         2026/3/23      9:36           9681 locatorParser.js                                                     
+-a----         2026/3/23      9:36           3503 locatorUtils.js                                                      
+-a----         2026/3/23      9:36           1721 lruCache.js                                                          
+-a----         2026/3/23      9:36           3402 manualPromise.js                                                     
+-a----         2026/3/23      9:36          15301 mimeType.js                                                          
+-a----         2026/3/23      9:36           2095 multimap.js                                                          
+-a----         2026/3/23      9:36           2944 protocolFormatter.js                                                 
+-a----         2026/3/23      9:36          24476 protocolMetainfo.js                                                  
+-a----         2026/3/23      9:36           1521 rtti.js                                                              
+-a----         2026/3/23      9:36          14046 selectorParser.js                                                    
+-a----         2026/3/23      9:36           1598 semaphore.js                                                         
+-a----         2026/3/23      9:36           5326 stackTrace.js                                                        
+-a----         2026/3/23      9:36           7225 stringUtils.js                                                       
+-a----         2026/3/23      9:36           1759 time.js                                                              
+-a----         2026/3/23      9:36           2516 timeoutRunner.js                                                     
+-a----         2026/3/23      9:36           2175 traceUtils.js                                                        
+-a----         2026/3/23      9:36            741 types.js                                                             
+-a----         2026/3/23      9:36           6179 urlMatch.js                                                          
+-a----         2026/3/23      9:36           7923 utilityScriptSerializers.js                                          
+-a----         2026/3/23      9:36           2520 yaml.js                                                              
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\utils\isomorphic\trace
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:36                versions                                                             
+-a----         2026/3/23      9:36            745 entries.js                                                           
+-a----         2026/3/23      9:36          23006 snapshotRenderer.js                                                  
+-a----         2026/3/23      9:36           4691 snapshotServer.js                                                    
+-a----         2026/3/23      9:36           3588 snapshotStorage.js                                                   
+-a----         2026/3/23      9:36           4902 traceLoader.js                                                       
+-a----         2026/3/23      9:36          13380 traceModel.js                                                        
+-a----         2026/3/23      9:36          13191 traceModernizer.js                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\utils\isomorphic\trace\versions
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36            745 traceV3.js                                                           
+-a----         2026/3/23      9:36            745 traceV4.js                                                           
+-a----         2026/3/23      9:36            745 traceV5.js                                                           
+-a----         2026/3/23      9:36            745 traceV6.js                                                           
+-a----         2026/3/23      9:36            745 traceV7.js                                                           
+-a----         2026/3/23      9:36            745 traceV8.js                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\utilsBundleImpl
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35         470200 index.js                                                             
+-a----         2026/3/23      9:35          25778 xdg-open                                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                htmlReport                                                           
+d-----         2026/3/23      9:35                recorder                                                             
+d-----         2026/3/23      9:35                traceViewer                                                          
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite\htmlReport
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35         527464 index.html                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite\recorder
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                assets                                                               
+-a----         2026/3/23      9:35           1078 index.html                                                           
+-a----         2026/3/23      9:35           5033 playwright-logo.svg                                                  
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite\recorder\assets
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35         313009 codeMirrorModule-DadYNm1I.js                                         
+-a----         2026/3/23      9:35           6421 codeMirrorModule-DYBRYzYX.css                                        
+-a----         2026/3/23      9:35          80340 codicon-DCmgc-ay.ttf                                                 
+-a----         2026/3/23      9:35         363108 index-BhTWtUlo.js                                                    
+-a----         2026/3/23      9:35          92055 index-BSjZa4pk.css                                                   
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite\traceViewer
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----         2026/3/23      9:35                assets                                                               
+-a----         2026/3/23      9:35           6421 codeMirrorModule.DYBRYzYX.css                                        
+-a----         2026/3/23      9:35          80340 codicon.DCmgc-ay.ttf                                                 
+-a----         2026/3/23      9:35         110370 defaultSettingsView.7ch9cixO.css                                     
+-a----         2026/3/23      9:35           6492 index.BDwrLSGN.js                                                    
+-a----         2026/3/23      9:35           1893 index.BVu7tZDe.css                                                   
+-a----         2026/3/23      9:35           2283 index.html                                                           
+-a----         2026/3/23      9:35            429 manifest.webmanifest                                                 
+-a----         2026/3/23      9:35           5033 playwright-logo.svg                                                  
+-a----         2026/3/23      9:35            935 snapshot.html                                                        
+-a----         2026/3/23      9:35          95179 sw.bundle.js                                                         
+-a----         2026/3/23      9:35          60239 uiMode.Btcz36p_.css                                                  
+-a----         2026/3/23      9:35          37370 uiMode.CQJ9SCIQ.js                                                   
+-a----         2026/3/23      9:35            647 uiMode.html                                                          
+-a----         2026/3/23      9:35           4150 xtermModule.DYP7pi_n.css                                             
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\lib\vite\traceViewer\assets
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:35         313023 codeMirrorModule-a5XoALAZ.js                                         
+-a----         2026/3/23      9:35         640870 defaultSettingsView-CJSZINFr.js                                      
+-a----         2026/3/23      9:35         292244 xtermModule-CsJ4vdCR.js                                              
+
+
+    目录: C:\Users\huawei\Desktop\项目004\node_modules\playwright-core\types
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36         787755 protocol.d.ts                                                        
+-a----         2026/3/23      9:36           2103 structs.d.ts                                                         
+-a----         2026/3/23      9:36         944714 types.d.ts                                                           
+
+
+    目录: C:\Users\huawei\Desktop\项目004\test-results
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23     10:11             96 .last-run.json                                                       
+
+
+    目录: C:\Users\huawei\Desktop\项目004\test_images
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+-a----         2026/3/23      9:36           2517 test1.jpg                                                            
+
+

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搭配建议 - 直搭数字衣柜</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 响应式网格布局 */
+        .desktop-grid {
+            display: grid;
+        }
+
+        .mobile-grid {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-grid {
+                display: none;
+            }
+
+            .mobile-grid {
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    <span>直搭数字衣柜</span>
+                </a>
+                <!-- 桌面端导航 -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="wardrobe.html">衣橱</a></li>
+                        <li><a href="outfit.html">今日穿搭</a></li>
+                        <li><a href="suggestion.html">搭配建议</a></li>
+                        <li><a href="tryon.html">试衣间</a></li>
+                    </ul>
+                </nav>
+                <!-- 手机端汉堡菜单 -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- 手机端导航菜单 -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="wardrobe.html">衣橱</a></li>
+                <li><a href="outfit.html">今日穿搭</a></li>
+                <li><a href="suggestion.html">搭配建议</a></li>
+                <li><a href="tryon.html">试衣间</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="suggestion-section">
+                <div class="card stats-card">
+                    <h2>搭配建议</h2>
+
+                    <div class="suggestion-controls grid grid-2 gap-lg">
+                        <div>
+                            <label for="style-type" class="text-sm text-muted">风格类型：</label>
+                            <select id="style-type" class="select-field">
+                                <option value="casual">休闲风</option>
+                                <option value="professional">职业风</option>
+                                <option value="elegant">优雅风</option>
+                                <option value="sporty">运动风</option>
+                                <option value="street">街头风</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="color-preference" class="text-sm text-muted">颜色偏好：</label>
+                            <select id="color-preference" class="select-field">
+                                <option value="all">全部颜色</option>
+                                <option value="warm">暖色调</option>
+                                <option value="cool">冷色调</option>
+                                <option value="neutral">中性色</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- API 配置区域 -->
+                    <div class="api-config-section" style="margin-top: var(--spacing-lg);">
+                        <div class="config-card" style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+                            <div class="config-header" style="padding: var(--spacing-md); background: var(--color-surface); border-bottom: 1px solid var(--color-border); cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleConfigPanel()">
+                                <h3 style="font-size: var(--text-lg); font-weight: 600; margin: 0;">⚙️ AI 模型配置</h3>
+                                <span id="config-toggle-icon" style="font-size: var(--text-xl);">▼</span>
+                            </div>
+                            <div id="config-panel" class="config-content" style="padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+                                <div style="padding: var(--spacing-lg);">
+                                    <div class="model-selection" style="margin-bottom: var(--spacing-lg);">
+                                        <label style="display: block; margin-bottom: var(--spacing-sm); font-weight: 500;">选择 AI 模型：</label>
+                                        <div class="model-radio-group" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                                            <!-- DeepSeek -->
+                                            <div class="model-option" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                <input type="radio" id="model-deepseek" name="ai-model" value="deepseek" checked>
+                                                <label for="model-deepseek" style="display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 500;">
+                                                    DeepSeek <span style="color: var(--color-primary); font-size: var(--text-sm);">(推荐)</span>
+                                                </label>
+                                            </div>
+                                            <!-- 通义千问 -->
+                                            <div class="model-option" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                <input type="radio" id="model-qwen" name="ai-model" value="qwen">
+                                                <label for="model-qwen" style="display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 500;">
+                                                    通义千问（Qwen）
+                                                </label>
+                                            </div>
+                                            <!-- 豆包 -->
+                                            <div class="model-option" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                <input type="radio" id="model-doubao" name="ai-model" value="doubao">
+                                                <label for="model-doubao" style="display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 500;">
+                                                    豆包（Doubao）
+                                                </label>
+                                            </div>
+                                            <!-- Kimi -->
+                                            <div class="model-option" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                <input type="radio" id="model-kimi" name="ai-model" value="kimi">
+                                                <label for="model-kimi" style="display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 500;">
+                                                    Kimi（月之暗面）
+                                                </label>
+                                            </div>
+                                            <!-- 自定义接口 -->
+                                            <div class="model-option" style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                                <input type="radio" id="model-custom" name="ai-model" value="custom">
+                                                <label for="model-custom" style="display: flex; align-items: center; gap: var(--spacing-sm); font-weight: 500;">
+                                                    自定义接口
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 模型配置表单 -->
+                                    <div id="model-config-form" style="margin-top: var(--spacing-lg);">
+                                        <!-- DeepSeek 配置 -->
+                                        <div id="config-deepseek" class="model-config" style="display: block;">
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="deepseek-api-key" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">API Key：</label>
+                                                <input type="password" id="deepseek-api-key" class="input-field" placeholder="sk-xxxx" style="width: 100%;">
+                                            </div>
+                                            <div class="form-actions" style="display: flex; gap: var(--spacing-sm);">
+                                                <button type="button" class="btn btn-primary" onclick="saveApiKey('deepseek')">保存</button>
+                                                <button type="button" class="btn btn-secondary" onclick="resetApiKey('deepseek')">重置</button>
+                                            </div>
+                                            <div class="api-info" style="margin-top: var(--spacing-sm); font-size: var(--text-sm);">
+                                                <span class="text-muted">申请地址：</span>
+                                                <a href="https://platform.deepseek.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">https://platform.deepseek.com</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 通义千问配置 -->
+                                        <div id="config-qwen" class="model-config" style="display: none;">
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="qwen-api-key" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">API Key：</label>
+                                                <input type="password" id="qwen-api-key" class="input-field" placeholder="输入 API Key" style="width: 100%;">
+                                            </div>
+                                            <div class="form-actions" style="display: flex; gap: var(--spacing-sm);">
+                                                <button type="button" class="btn btn-primary" onclick="saveApiKey('qwen')">保存</button>
+                                                <button type="button" class="btn btn-secondary" onclick="resetApiKey('qwen')">重置</button>
+                                            </div>
+                                            <div class="api-info" style="margin-top: var(--spacing-sm); font-size: var(--text-sm);">
+                                                <span class="text-muted">申请地址：</span>
+                                                <a href="https://dashscope.console.aliyun.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">https://dashscope.console.aliyun.com</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 豆包配置 -->
+                                        <div id="config-doubao" class="model-config" style="display: none;">
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="doubao-api-key" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">API Key：</label>
+                                                <input type="password" id="doubao-api-key" class="input-field" placeholder="输入 API Key" style="width: 100%;">
+                                            </div>
+                                            <div class="form-actions" style="display: flex; gap: var(--spacing-sm);">
+                                                <button type="button" class="btn btn-primary" onclick="saveApiKey('doubao')">保存</button>
+                                                <button type="button" class="btn btn-secondary" onclick="resetApiKey('doubao')">重置</button>
+                                            </div>
+                                            <div class="api-info" style="margin-top: var(--spacing-sm); font-size: var(--text-sm);">
+                                                <span class="text-muted">申请地址：</span>
+                                                <a href="https://console.volcengine.com/ark" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">https://console.volcengine.com/ark</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Kimi 配置 -->
+                                        <div id="config-kimi" class="model-config" style="display: none;">
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="kimi-api-key" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">API Key：</label>
+                                                <input type="password" id="kimi-api-key" class="input-field" placeholder="输入 API Key" style="width: 100%;">
+                                            </div>
+                                            <div class="form-actions" style="display: flex; gap: var(--spacing-sm);">
+                                                <button type="button" class="btn btn-primary" onclick="saveApiKey('kimi')">保存</button>
+                                                <button type="button" class="btn btn-secondary" onclick="resetApiKey('kimi')">重置</button>
+                                            </div>
+                                            <div class="api-info" style="margin-top: var(--spacing-sm); font-size: var(--text-sm);">
+                                                <span class="text-muted">申请地址：</span>
+                                                <a href="https://platform.moonshot.cn" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">https://platform.moonshot.cn</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- 自定义接口配置 -->
+                                        <div id="config-custom" class="model-config" style="display: none;">
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="custom-base-url" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">Base URL：</label>
+                                                <input type="text" id="custom-base-url" class="input-field" placeholder="https://api.xxx.com/v1" style="width: 100%;">
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="custom-model-name" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">Model Name：</label>
+                                                <input type="text" id="custom-model-name" class="input-field" placeholder="gpt-4o" style="width: 100%;">
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                                <label for="custom-api-key" class="text-sm text-muted" style="display: block; margin-bottom: var(--spacing-sm);">API Key：</label>
+                                                <input type="password" id="custom-api-key" class="input-field" placeholder="输入 API Key" style="width: 100%;">
+                                            </div>
+                                            <div class="form-actions" style="display: flex; gap: var(--spacing-sm);">
+                                                <button type="button" class="btn btn-primary" onclick="saveApiKey('custom')">保存</button>
+                                                <button type="button" class="btn btn-secondary" onclick="resetApiKey('custom')">重置</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 配置状态显示 -->
+                                    <div id="config-status" class="config-status" style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background: var(--color-surface); border-radius: var(--radius-md);">
+                                        <div class="status-message" id="config-status-message" style="font-size: var(--text-sm); color: var(--color-muted);">
+                                            请选择一个 AI 模型并配置 API Key
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: var(--spacing-lg);">
+                        <button id="generate-suggestion" class="btn btn-primary btn-block" style="max-width: 300px;" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            生成建议
+                        </button>
+                        <div id="generate-suggestion-hint" class="text-sm text-muted" style="margin-top: var(--spacing-sm); display: block;">
+                            请先配置至少一个模型的 API Key
+                        </div>
+                    </div>
+
+                    <div id="suggestion-result" class="suggestion-result" style="margin-top: var(--spacing-xl);">
+                        <!-- 搭配建议结果将在这里显示 -->
+                    </div>
+                </div>
+
+                <div class="card stats-card" style="margin-top: var(--spacing-xl);">
+                    <h3>常见搭配技巧</h3>
+                    <div class="grid grid-2 gap-lg">
+                        <div>
+                            <h4>颜色搭配</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
+                                    <strong>同色系搭配：</strong><span class="text-muted">深浅变化，层次感强</span>
+                                </li>
+                                <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
+                                    <strong>对比色搭配：</strong><span class="text-muted">互补色相撞，活力四射</span>
+                                </li>
+                                <li style="padding: var(--spacing-sm) 0;">
+                                    <strong>中性色搭配：</strong><span class="text-muted">黑白灰基础，百搭不出错</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>单品搭配</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
+                                    <strong>上宽下窄：</strong><span class="text-muted">适合梨形身材</span>
+                                </li>
+                                <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--color-border);">
+                                    <strong>上窄下宽：</strong><span class="text-muted">适合倒三角身材</span>
+                                </li>
+                                <li style="padding: var(--spacing-sm) 0;">
+                                    <strong>腰线强调：</strong><span class="text-muted">提高比例，显高显瘦</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新增色彩搭配指南组件 -->
+                <div class="card stats-card" style="margin-top: var(--spacing-xl);">
+                    <h3>色彩搭配指南</h3>
+
+                    <!-- 板块一：色彩搭配基础理论 -->
+                    <div class="color-guide-section" style="margin-top: var(--spacing-lg);">
+                        <h4>色彩搭配基础理论</h4>
+                        <div class="grid grid-2 gap-lg desktop-grid">
+                            <!-- 同色系搭配 -->
+                            <div class="color-card">
+                                <h5>同色系搭配（Monochromatic）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1a365d;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2b6cb0;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #bee3f8;"></div>
+                                </div>
+                                <p class="text-sm text-muted">同一色相深浅变化</p>
+                            </div>
+                            <!-- 邻近色搭配 -->
+                            <div class="color-card">
+                                <h5>邻近色搭配（Analogous）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FF6B2C;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FFB347;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F6E05E;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮上相邻颜色</p>
+                            </div>
+                            <!-- 互补色搭配 -->
+                            <div class="color-card">
+                                <h5>互补色搭配（Complementary）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FF6B2C;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮对立颜色，视觉冲击强</p>
+                            </div>
+                            <!-- 三角配色 -->
+                            <div class="color-card">
+                                <h5>三角配色（Triadic）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #E53E3E;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #ECC94B;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮均匀分布三色</p>
+                            </div>
+                            <!-- 中性色搭配 -->
+                            <div class="color-card">
+                                <h5>中性色搭配（Neutral）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #718096;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                </div>
+                                <p class="text-sm text-muted">黑白灰，百搭不出错</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-1 gap-lg mobile-grid">
+                            <!-- 同色系搭配 -->
+                            <div class="color-card">
+                                <h5>同色系搭配（Monochromatic）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1a365d;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2b6cb0;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #bee3f8;"></div>
+                                </div>
+                                <p class="text-sm text-muted">同一色相深浅变化</p>
+                            </div>
+                            <!-- 邻近色搭配 -->
+                            <div class="color-card">
+                                <h5>邻近色搭配（Analogous）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FF6B2C;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FFB347;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F6E05E;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮上相邻颜色</p>
+                            </div>
+                            <!-- 互补色搭配 -->
+                            <div class="color-card">
+                                <h5>互补色搭配（Complementary）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FF6B2C;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮对立颜色，视觉冲击强</p>
+                            </div>
+                            <!-- 三角配色 -->
+                            <div class="color-card">
+                                <h5>三角配色（Triadic）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #E53E3E;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #ECC94B;"></div>
+                                </div>
+                                <p class="text-sm text-muted">色轮均匀分布三色</p>
+                            </div>
+                            <!-- 中性色搭配 -->
+                            <div class="color-card">
+                                <h5>中性色搭配（Neutral）</h5>
+                                <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #718096;"></div>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                </div>
+                                <p class="text-sm text-muted">黑白灰，百搭不出错</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 板块二：上衣与裤子经典搭配组合 -->
+                    <div class="color-guide-section" style="margin-top: var(--spacing-xl);">
+                        <h4>上衣与裤子经典搭配组合</h4>
+                        <div class="grid grid-2 gap-lg desktop-grid">
+                            <!-- 白色上衣 + 黑色裤子 -->
+                            <div class="match-card" style="border: 2px solid #52C97A; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">白色上衣 + 黑色裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #52C97A;">评分 9.5/10 永恒经典</div>
+                                </div>
+                            </div>
+                            <!-- 白色上衣 + 牛仔蓝裤子 -->
+                            <div class="match-card" style="border: 2px solid #52C97A; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">白色上衣 + 牛仔蓝裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #52C97A;">评分 9/10 清爽日常</div>
+                                </div>
+                            </div>
+                            <!-- 黑色上衣 + 卡其裤子 -->
+                            <div class="match-card" style="border: 2px solid #52C97A; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #C3A96E;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">黑色上衣 + 卡其裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #52C97A;">评分 8.5/10 质感休闲</div>
+                                </div>
+                            </div>
+                            <!-- 条纹上衣 + 纯色裤子 -->
+                            <div class="match-card" style="border: 2px solid #52C97A; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: repeating-linear-gradient(45deg, #F7FAFC, #F7FAFC 10px, #1A1A1A 10px, #1A1A1A 20px);"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2D3748;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">条纹上衣 + 纯色裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #52C97A;">评分 8/10 法式风情</div>
+                                </div>
+                            </div>
+                            <!-- 浅色上衣 + 深色裤子 -->
+                            <div class="match-card" style="border: 2px solid #52C97A; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #B8A99A;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2D3748;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">浅色上衣 + 深色裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #52C97A;">评分 8/10 显高显瘦</div>
+                                </div>
+                            </div>
+                            <!-- 红色上衣 + 绿色裤子 -->
+                            <div class="match-card" style="border: 2px solid #FFB347; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #E53E3E;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #48BB78;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">红色上衣 + 绿色裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #FFB347;">评分 4/10 互补色慎用</div>
+                                </div>
+                            </div>
+                            <!-- 黑色上衣 + 黑色裤子 -->
+                            <div class="match-card" style="border: 2px solid #FFB347; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1A1A1A;"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">黑色上衣 + 黑色裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #FFB347;">评分 6/10 全黑需质感</div>
+                                </div>
+                            </div>
+                            <!-- 花纹上衣 + 花纹裤子 -->
+                            <div class="match-card" style="border: 2px solid #E53E3E; border-radius: var(--radius-lg); padding: var(--spacing-md);">
+                                <div class="match-pair" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: radial-gradient(circle, #FF6B2C 0%, #FFB347 50%, #F6E05E 100%);"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: repeating-pattern(diagonal stripes, #4A6FA5 0, #4A6FA5 10px, #FF6B2C 10px, #FF6B2C 20px);"></div>
+                                </div>
+                                <div class="match-info">
+                                    <div class="match-name" style="font-weight: 600;">花纹上衣 + 花纹裤子</div>
+                                    <div class="match-score" style="font-size: 0.875rem; color: #E53E3E;">评分 2/10 花纹撞花纹避免</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 板块三：叠穿色彩搭配技巧 -->
+                    <div class="color-guide-section" style="margin-top: var(--spacing-xl);">
+                        <h4>叠穿色彩搭配技巧</h4>
+                        <div class="grid grid-2 gap-lg">
+                            <!-- 外深内浅 -->
+                            <div class="layer-card">
+                                <div class="layer-title" style="font-weight: 600; margin-bottom: var(--spacing-sm);">规则1：外深内浅</div>
+                                <div class="layer-example" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2D3748;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                </div>
+                                <p class="text-sm text-muted">深色外套+浅色内搭，层次分明</p>
+                            </div>
+                            <!-- 同色系叠穿 -->
+                            <div class="layer-card">
+                                <div class="layer-title" style="font-weight: 600; margin-bottom: var(--spacing-sm);">规则2：同色系叠穿</div>
+                                <div class="layer-example" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #1a365d;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                </div>
+                                <p class="text-sm text-muted">同色相不同明度，高级感强</p>
+                            </div>
+                            <!-- 中性色打底 -->
+                            <div class="layer-card">
+                                <div class="layer-title" style="font-weight: 600; margin-bottom: var(--spacing-sm);">规则3：中性色打底</div>
+                                <div class="layer-example" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(45deg, #FF6B2C, #48BB78);"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                </div>
+                                <p class="text-sm text-muted">白/灰/黑内搭，外套任意色</p>
+                            </div>
+                            <!-- 避免撞色叠穿 -->
+                            <div class="layer-card">
+                                <div class="layer-title" style="font-weight: 600; margin-bottom: var(--spacing-sm);">规则4：避免撞色叠穿</div>
+                                <div class="layer-example" style="display: flex; align-items: center; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #E53E3E;"></div>
+                                    <span style="font-weight: 600;">+</span>
+                                    <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #48BB78;"></div>
+                                </div>
+                                <p class="text-sm text-muted">互补色叠穿视觉混乱</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 板块四：肤色与服装颜色建议 -->
+                    <div class="color-guide-section" style="margin-top: var(--spacing-xl);">
+                        <h4>肤色与服装颜色建议</h4>
+                        <div class="grid grid-3 gap-lg">
+                            <!-- 偏白肤色 -->
+                            <div class="skin-tone-card">
+                                <div class="skin-tone-title" style="font-weight: 600; margin-bottom: var(--spacing-md);">偏白肤色</div>
+                                <div class="skin-tone-recommendation" style="margin-bottom: var(--spacing-sm);">
+                                    <p class="text-sm text-muted">推荐：大地色、莫兰迪色、深色系</p>
+                                    <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #C3A96E;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #B8A99A;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #8B6914;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #2D3748;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 小麦肤色 -->
+                            <div class="skin-tone-card">
+                                <div class="skin-tone-title" style="font-weight: 600; margin-bottom: var(--spacing-md);">小麦肤色</div>
+                                <div class="skin-tone-recommendation" style="margin-bottom: var(--spacing-sm);">
+                                    <p class="text-sm text-muted">推荐：暖色系、橙色系、白色</p>
+                                    <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FF6B2C;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FFB347;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F6E05E;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #FFFFFF;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 偏深肤色 -->
+                            <div class="skin-tone-card">
+                                <div class="skin-tone-title" style="font-weight: 600; margin-bottom: var(--spacing-md);">偏深肤色</div>
+                                <div class="skin-tone-recommendation" style="margin-bottom: var(--spacing-sm);">
+                                    <p class="text-sm text-muted">推荐：亮色系、白色、鲜艳色</p>
+                                    <div class="color-palette" style="display: flex; gap: var(--spacing-sm); margin: var(--spacing-sm) 0;">
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #F7FAFC;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #48BB78;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #4A6FA5;"></div>
+                                        <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 50%; background: #ECC94B;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p class="text-muted">© 2026 ClosetAI. 智能衣橱管理系统.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/storage.js"></script>
+    <script src="/app.js"></script>
+    <script src="/config.js"></script>
+    <script>
+        // 汉堡菜单功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+
+            // 点击菜单外部关闭菜单
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.header-content')) {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                }
+            });
+        });
+    <script>
+        // 使用全局 modelConfig（来自 config.js）
+        const modelConfig = window.modelConfig || {
+            deepseek: {
+                base_url: 'https://api.deepseek.com/v1',
+                model: 'deepseek-chat'
+            },
+            qwen: {
+                base_url: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+                model: 'qwen-plus'
+            },
+            doubao: {
+                base_url: 'https://ark.cn-beijing.volces.com/api/v3',
+                model: 'doubao-pro-4k'
+            },
+            kimi: {
+                base_url: 'https://api.moonshot.cn/v1',
+                model: 'moonshot-v1-8k'
+            }
+        };
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化模型选择事件
+            const modelRadios = document.querySelectorAll('input[name="ai-model"]');
+            modelRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    showModelConfig(this.value);
+                    updateGenerateButtonState();
+                });
+            });
+
+            // 初始化 API Key 输入框
+            initApiKeyInputs();
+
+            // 初始化生成建议按钮
+            updateGenerateButtonState();
+
+            // 绑定生成建议按钮事件
+            document.getElementById('generate-suggestion').addEventListener('click', generateSuggestion);
+        });
+
+        // 切换配置面板显示/隐藏
+        function toggleConfigPanel() {
+            const configPanel = document.getElementById('config-panel');
+            const toggleIcon = document.getElementById('config-toggle-icon');
+
+            if (configPanel.style.maxHeight && configPanel.style.maxHeight !== '0px') {
+                configPanel.style.maxHeight = '0px';
+                configPanel.style.padding = '0';
+                toggleIcon.textContent = '▼';
+            } else {
+                configPanel.style.maxHeight = '1000px';
+                configPanel.style.padding = 'var(--spacing-lg)';
+                toggleIcon.textContent = '▲';
+            }
+        }
+
+        // 显示选中模型的配置
+        function showModelConfig(model) {
+            const configDivs = document.querySelectorAll('.model-config');
+            configDivs.forEach(div => {
+                div.style.display = 'none';
+            });
+
+            document.getElementById(`config-${model}`).style.display = 'block';
+        }
+
+        // 初始化 API Key 输入框
+        function initApiKeyInputs() {
+            // 从 localStorage 加载已保存的 API Key
+            Object.keys(modelConfig).forEach(model => {
+                const apiKey = localStorage.getItem(`api-key-${model}`);
+                if (apiKey) {
+                    const input = document.getElementById(`${model}-api-key`);
+                    if (input) {
+                        input.value = '已配置 ✓';
+                        input.disabled = true;
+                        input.style.color = 'var(--color-success)';
+                        input.style.fontWeight = '500';
+                    }
+                }
+            });
+
+            // 自定义接口的配置
+            const customBaseUrl = localStorage.getItem('custom-base-url');
+            const customModel = localStorage.getItem('custom-model');
+            const customApiKey = localStorage.getItem('custom-api-key');
+
+            if (customBaseUrl) {
+                document.getElementById('custom-base-url').value = customBaseUrl;
+            }
+
+            if (customModel) {
+                document.getElementById('custom-model-name').value = customModel;
+            }
+
+            if (customApiKey) {
+                const input = document.getElementById('custom-api-key');
+                input.value = '已配置 ✓';
+                input.disabled = true;
+                input.style.color = 'var(--color-success)';
+                input.style.fontWeight = '500';
+            }
+        }
+
+        // 保存 API Key 到 localStorage
+        function saveApiKey(model) {
+            let apiKey;
+            let baseUrl;
+            let modelName;
+
+            if (model === 'custom') {
+                const baseUrlInput = document.getElementById('custom-base-url');
+                const modelNameInput = document.getElementById('custom-model-name');
+                const apiKeyInput = document.getElementById('custom-api-key');
+
+                baseUrl = baseUrlInput.value.trim();
+                modelName = modelNameInput.value.trim();
+                apiKey = apiKeyInput.value.trim();
+
+                if (!baseUrl || !modelName || !apiKey) {
+                    alert('请填写完整的自定义接口配置');
+                    return;
+                }
+
+                localStorage.setItem('custom-base-url', baseUrl);
+                localStorage.setItem('custom-model', modelName);
+                localStorage.setItem('custom-api-key', apiKey);
+
+                // 显示已配置状态
+                apiKeyInput.value = '已配置 ✓';
+                apiKeyInput.disabled = true;
+                apiKeyInput.style.color = 'var(--color-success)';
+                apiKeyInput.style.fontWeight = '500';
+            } else {
+                const apiKeyInput = document.getElementById(`${model}-api-key`);
+                apiKey = apiKeyInput.value.trim();
+
+                if (!apiKey) {
+                    alert('请输入 API Key');
+                    return;
+                }
+
+                localStorage.setItem(`api-key-${model}`, apiKey);
+
+                // 显示已配置状态
+                apiKeyInput.value = '已配置 ✓';
+                apiKeyInput.disabled = true;
+                apiKeyInput.style.color = 'var(--color-success)';
+                apiKeyInput.style.fontWeight = '500';
+            }
+
+            updateGenerateButtonState();
+            updateConfigStatus();
+        }
+
+        // 重置 API Key 配置
+        function resetApiKey(model) {
+            if (model === 'custom') {
+                localStorage.removeItem('custom-base-url');
+                localStorage.removeItem('custom-model');
+                localStorage.removeItem('custom-api-key');
+
+                document.getElementById('custom-base-url').value = '';
+                document.getElementById('custom-model-name').value = '';
+
+                const apiKeyInput = document.getElementById('custom-api-key');
+                apiKeyInput.value = '';
+                apiKeyInput.disabled = false;
+                apiKeyInput.style.color = '';
+                apiKeyInput.style.fontWeight = 'normal';
+            } else {
+                localStorage.removeItem(`api-key-${model}`);
+
+                const apiKeyInput = document.getElementById(`${model}-api-key`);
+                apiKeyInput.value = '';
+                apiKeyInput.disabled = false;
+                apiKeyInput.style.color = '';
+                apiKeyInput.style.fontWeight = 'normal';
+            }
+
+            updateGenerateButtonState();
+            updateConfigStatus();
+        }
+
+        // 更新生成建议按钮状态
+        function updateGenerateButtonState() {
+            const selectedModel = document.querySelector('input[name="ai-model"]:checked').value;
+            const generateButton = document.getElementById('generate-suggestion');
+            const generateHint = document.getElementById('generate-suggestion-hint');
+
+            let hasConfig = false;
+
+            if (selectedModel === 'custom') {
+                const customBaseUrl = localStorage.getItem('custom-base-url');
+                const customModel = localStorage.getItem('custom-model');
+                const customApiKey = localStorage.getItem('custom-api-key');
+                hasConfig = !!(customBaseUrl && customModel && customApiKey);
+            } else {
+                hasConfig = !!localStorage.getItem(`api-key-${selectedModel}`);
+            }
+
+            if (hasConfig) {
+                generateButton.disabled = false;
+                generateButton.classList.remove('btn-secondary');
+                generateButton.classList.add('btn-primary');
+                generateHint.style.display = 'none';
+            } else {
+                generateButton.disabled = true;
+                generateButton.classList.remove('btn-primary');
+                generateButton.classList.add('btn-secondary');
+                generateHint.style.display = 'block';
+            }
+        }
+
+        // 更新配置状态显示
+        function updateConfigStatus() {
+            const selectedModel = document.querySelector('input[name="ai-model"]:checked').value;
+            const statusMessage = document.getElementById('config-status-message');
+
+            let hasConfig = false;
+
+            if (selectedModel === 'custom') {
+                const customBaseUrl = localStorage.getItem('custom-base-url');
+                const customModel = localStorage.getItem('custom-model');
+                const customApiKey = localStorage.getItem('custom-api-key');
+                hasConfig = !!(customBaseUrl && customModel && customApiKey);
+            } else {
+                hasConfig = !!localStorage.getItem(`api-key-${selectedModel}`);
+            }
+
+            if (hasConfig) {
+                statusMessage.textContent = '✓ 模型配置已完成';
+                statusMessage.style.color = 'var(--color-success)';
+            } else {
+                statusMessage.textContent = '请选择一个 AI 模型并配置 API Key';
+                statusMessage.style.color = 'var(--color-muted)';
+            }
+        }
+
+        // 生成搭配建议
+        async function generateSuggestion() {
+            const selectedModel = document.querySelector('input[name="ai-model"]:checked').value;
+            const styleType = document.getElementById('style-type').value;
+            const colorPreference = document.getElementById('color-preference').value;
+            const wardrobe = getWardrobeItems();
+
+            // 获取模型配置
+            let config;
+            let apiKey;
+
+            if (selectedModel === 'custom') {
+                config = {
+                    base_url: localStorage.getItem('custom-base-url'),
+                    model: localStorage.getItem('custom-model')
+                };
+                apiKey = localStorage.getItem('custom-api-key');
+            } else {
+                config = modelConfig[selectedModel];
+                apiKey = localStorage.getItem(`api-key-${selectedModel}`);
+            }
+
+            // 构建请求消息
+            const messages = [
+                {
+                    role: 'user',
+                    content: `你是一个专业的时尚搭配顾问，负责根据用户的衣橱和偏好生成搭配建议。
+
+用户衣橱信息：
+${JSON.stringify(wardrobe, null, 2)}
+
+用户偏好：
+- 风格类型：${getStyleName(styleType)}
+- 颜色偏好：${getColorPreferenceName(colorPreference)}
+
+请根据用户的衣橱和偏好，生成3-5套完整的穿搭建议。每套建议需要包含上衣、裤子/裙子、外套（可选）、鞋子和配饰（可选）。
+
+请严格按照以下格式返回 JSON 数据：
+{
+  "suggestions": [
+    {
+      "name": "搭配名称",
+      "items": [
+        {
+          "id": "衣物ID",
+          "name": "衣物名称",
+          "category": "分类",
+          "color": "颜色",
+          "style": "风格"
+        }
+      ],
+      "description": "搭配描述",
+      "score": "匹配度分数（0-10）"
+    }
+  ]
+}
+
+注意：
+1. 只返回 JSON 格式的内容，不要包含其他文本
+2. 每套搭配必须包含至少3件衣物
+3. 确保衣物的颜色和风格符合用户的偏好
+4. 给出合理的匹配度分数
+`
+                }
+            ];
+
+            try {
+                const response = await fetch('/api/ai-suggest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        messages: messages,
+                        base_url: config.base_url,
+                        model: config.model,
+                        api_key: apiKey
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    const suggestions = JSON.parse(data.content).suggestions;
+                    displaySuggestions(suggestions);
+                } else {
+                    throw new Error(data.detail || '请求失败');
+                }
+
+            } catch (error) {
+                console.error('API 请求失败:', error);
+                alert('获取搭配建议失败，请检查 API 配置是否正确');
+            }
+        }
+
+        // 获取衣橱物品
+        function getWardrobeItems() {
+            const wardrobe = [];
+            const items = getStoredItems();
+            items.forEach(item => {
+                wardrobe.push({
+                    id: item.id,
+                    name: item.name,
+                    category: item.category,
+                    color: item.color,
+                    style: item.style,
+                    season: item.season
+                });
+            });
+            return wardrobe;
+        }
+
+        // 获取风格名称
+        function getStyleName(styleType) {
+            const styleMap = {
+                'casual': '休闲风',
+                'professional': '职业风',
+                'elegant': '优雅风',
+                'sporty': '运动风',
+                'street': '街头风'
+            };
+            return styleMap[styleType] || styleType;
+        }
+
+        // 获取颜色偏好名称
+        function getColorPreferenceName(colorPreference) {
+            const colorMap = {
+                'all': '全部颜色',
+                'warm': '暖色调',
+                'cool': '冷色调',
+                'neutral': '中性色'
+            };
+            return colorMap[colorPreference] || colorPreference;
+        }
+
+        // 显示搭配建议
+        function displaySuggestions(suggestions) {
+            const resultDiv = document.getElementById('suggestion-result');
+            resultDiv.innerHTML = '';
+
+            if (suggestions.length === 0) {
+                resultDiv.innerHTML = `
+                    <div style="text-align: center; padding: var(--spacing-xl);">
+                        <p class="text-muted">没有找到符合条件的搭配建议</p>
+                    </div>
+                `;
+                return;
+            }
+
+            suggestions.forEach((suggestion, index) => {
+                const suggestionCard = document.createElement('div');
+                suggestionCard.className = 'suggestion-card card';
+                suggestionCard.style.marginBottom = 'var(--spacing-lg)';
+
+                suggestionCard.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md);">
+                        <h3 style="margin: 0;">${suggestion.name}</h3>
+                        <span style="padding: 4px 8px; background: var(--color-primary); color: white; border-radius: 4px; font-size: var(--text-sm);">
+                            匹配度 ${suggestion.score}
+                        </span>
+                    </div>
+
+                    <div class="suggestion-items" style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                        ${suggestion.items.map(item => `
+                            <div class="item-tag" style="padding: 4px 8px; background: var(--color-surface); border-radius: 4px; font-size: var(--text-sm);">
+                                ${item.name}
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <p class="text-muted">${suggestion.description}</p>
+                `;
+
+                resultDiv.appendChild(suggestionCard);
+            });
+        }
+    </script>
+
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p class="text-muted">© 2026 直搭数字衣柜. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

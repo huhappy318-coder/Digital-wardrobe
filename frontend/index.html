@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直搭数字衣柜 - 智能衣橱管理</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 主页特殊样式 */
+        .welcome-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xxl);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .welcome-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+
+        .welcome-text h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .welcome-text .date {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .quick-action-btn {
+            background: white;
+            color: var(--color-primary);
+            font-weight: 600;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+        }
+
+        .quick-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.4);
+        }
+
+        /* 数据统计卡片 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-xs);
+            animation: countUp 0.5s ease-out;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-sub);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-icon {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 48px;
+            height: 48px;
+            background: var(--color-primary-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+        }
+
+        .sleeping-items {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* 快捷入口 */
+        .quick-entries {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .quick-entries h3 {
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-text-main);
+        }
+
+        .entries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .entry-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            text-align: center;
+            text-decoration: none;
+            color: var(--color-text-main);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+
+        .entry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            background: var(--color-primary-light);
+        }
+
+        .entry-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .entry-desc {
+            font-size: 0.875rem;
+            color: var(--color-text-sub);
+        }
+
+        /* 最近穿搭记录 */
+        .recent-activities {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .recent-activities h3 {
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-text-main);
+        }
+
+        .activity-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .activity-item {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .activity-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .activity-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            background: var(--color-border);
+        }
+
+        .activity-info {
+            flex: 1;
+        }
+
+        .activity-name {
+            font-weight: 600;
+            color: var(--color-text-main);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .activity-time {
+            font-size: 0.875rem;
+            color: var(--color-text-sub);
+        }
+
+        .activity-tag {
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .entries-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .welcome-text h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .entries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .quick-action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .welcome-section {
+                padding: var(--spacing-lg);
+            }
+
+            .welcome-text .date {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-section {
+                padding: var(--spacing-md);
+            }
+
+            .welcome-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .entry-card {
+                padding: var(--spacing-lg);
+            }
+
+            .entry-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.25rem;
+            }
+
+            .entry-title {
+                font-size: 1rem;
+            }
+
+            .entry-desc {
+                font-size: 0.8125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">C</div>
+                    <span>直搭数字衣柜</span>
+                </a>
+                <!-- 桌面端导航 -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="wardrobe.html">衣橱</a></li>
+                        <li><a href="outfit.html">今日穿搭</a></li>
+                        <li><a href="suggestion.html">搭配建议</a></li>
+                        <li><a href="tryon.html">试衣间</a></li>
+                    </ul>
+                </nav>
+                <!-- 手机端汉堡菜单 -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- 手机端导航菜单 -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="wardrobe.html">衣橱</a></li>
+                <li><a href="outfit.html">今日穿搭</a></li>
+                <li><a href="suggestion.html">搭配建议</a></li>
+                <li><a href="tryon.html">试衣间</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- 顶部欢迎区 -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <div class="welcome-text">
+                        <h1>你好，今天穿什么？</h1>
+                        <div class="date" id="current-date"></div>
+                    </div>
+                    <a href="outfit.html" class="quick-action-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        查看今日推荐
+                    </a>
+                </div>
+            </section>
+
+            <!-- 数据统计卡片区 -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <!-- 衣橱总件数 -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="total-clothing">0</div>
+                        <div class="stat-label">衣橱总件数</div>
+                        <div class="text-sm text-muted">包含上衣、裤子、鞋子等</div>
+                    </div>
+
+                    <!-- 本月穿搭次数 -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="monthly-worn">0</div>
+                        <div class="stat-label">本月穿搭次数</div>
+                        <div class="text-sm text-muted">累计出镜次数</div>
+                    </div>
+
+                    <!-- 沉睡单品 -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value sleeping-items" id="sleeping-items">0</div>
+                        <div class="stat-label">沉睡单品</div>
+                        <div class="text-sm text-muted">从未穿过的衣服</div>
+                    </div>
+
+                    <!-- 最常穿的衣服 -->
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value" id="most-worn">0</div>
+                        <div class="stat-label">最常穿的衣服</div>
+                        <div class="text-sm text-muted">出镜次数最多</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 快捷入口 -->
+            <section class="quick-entries">
+                <h3>快捷入口</h3>
+                <div class="entries-grid">
+                    <a href="wardrobe.html" class="entry-card">
+                        <div class="entry-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </div>
+                        <div class="entry-title">+ 添加新衣服</div>
+                        <div class="entry-desc">上传衣服照片，AI自动识别</div>
+                    </a>
+
+                    <a href="outfit.html" class="entry-card">
+                        <div class="entry-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <div class="entry-title">今日穿搭</div>
+                        <div class="entry-desc">根据天气推荐合适搭配</div>
+                    </a>
+
+                    <a href="wardrobe.html#outfit-builder" class="entry-card">
+                        <div class="entry-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6"/>
+                            </svg>
+                        </div>
+                        <div class="entry-title">搭配分析</div>
+                        <div class="entry-desc">AI分析搭配协调性</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 最近穿搭记录 -->
+            <section class="recent-activities">
+                <h3>最近穿搭记录</h3>
+                <div class="activity-timeline" id="activity-timeline">
+                    <!-- 动态生成 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <p class="text-muted">© 2026 直搭数字衣柜. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/config.js"></script>
+    <script src="/static/storage.js"></script>
+    <script src="/static/app.js"></script>
+    <script>
+        // 汉堡菜单功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+
+            // 点击菜单外部关闭菜单
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.header-content')) {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                }
+            });
+        });
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 显示当前日期
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('zh-CN', options);
+
+            // 加载数据统计
+            loadStatistics();
+
+            // 加载最近穿搭记录
+            loadRecentActivities();
+        });
+
+        // 加载数据统计
+        function loadStatistics() {
+            const wardrobe = getWardrobe();
+
+            // 衣橱总件数
+            document.getElementById('total-clothing').textContent = wardrobe.length;
+
+            // 本月穿搭次数
+            const thisMonth = new Date();
+            const monthStart = new Date(thisMonth.getFullYear(), thisMonth.getMonth(), 1);
+            const monthEnd = new Date(thisMonth.getFullYear(), thisMonth.getMonth() + 1, 0, 23, 59, 59);
+
+            let monthlyWorn = 0;
+            wardrobe.forEach(item => {
+                if (item.lastWorn) {
+                    const lastWornDate = new Date(item.lastWorn);
+                    if (lastWornDate >= monthStart && lastWornDate <= monthEnd) {
+                        monthlyWorn += item.wornCount;
+                    }
+                }
+            });
+            document.getElementById('monthly-worn').textContent = monthlyWorn;
+
+            // 沉睡单品
+            const sleepingItems = wardrobe.filter(item => !item.lastWorn || item.wornCount === 0).length;
+            document.getElementById('sleeping-items').textContent = sleepingItems;
+
+            // 最常穿的衣服
+            let mostWornCount = 0;
+            wardrobe.forEach(item => {
+                if (item.wornCount > mostWornCount) {
+                    mostWornCount = item.wornCount;
+                }
+            });
+            document.getElementById('most-worn').textContent = mostWornCount;
+        }
+
+        // 加载最近穿搭记录
+        function loadRecentActivities() {
+            const wardrobe = getWardrobe();
+
+            // 过滤出有穿搭记录的衣服
+            const wornItems = wardrobe.filter(item => item.lastWorn && item.wornCount > 0);
+
+            // 按最后穿的时间排序
+            wornItems.sort((a, b) => new Date(b.lastWorn) - new Date(a.lastWorn));
+
+            // 取最近5条
+            const recentItems = wornItems.slice(0, 5);
+
+            const timeline = document.getElementById('activity-timeline');
+
+            if (recentItems.length === 0) {
+                timeline.innerHTML = `
+                    <div style="text-align: center; padding: var(--spacing-xl); color: var(--color-text-sub);">
+                        <div style="width: 64px; height: 64px; background: var(--color-primary-light); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <p>暂无穿搭记录</p>
+                        <p class="text-sm">开始添加衣服并记录你的穿搭吧！</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 生成时间线
+            timeline.innerHTML = recentItems.map(item => `
+                <div class="activity-item">
+                    <img src="${item.image || 'placeholder.svg'}" alt="${item.name}" class="activity-thumbnail">
+                    <div class="activity-info">
+                        <div class="activity-name">${item.name}</div>
+                        <div class="activity-time">${formatRelativeTime(item.lastWorn)}</div>
+                    </div>
+                    <span class="activity-tag">出镜 ${item.wornCount} 次</span>
+                </div>
+            `).join('');
+        }
+
+        // 格式化相对时间
+        function formatRelativeTime(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diff = now - date;
+
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (minutes < 60) {
+                return `${minutes}分钟前`;
+            } else if (hours < 24) {
+                return `${hours}小时前`;
+            } else if (days < 7) {
+                return `${days}天前`;
+            } else {
+                return date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+            }
+        }
+    </script>
+</body>
+</html>
