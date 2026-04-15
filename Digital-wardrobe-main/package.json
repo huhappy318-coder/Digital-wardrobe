@@ -1,0 +1,14 @@
+{
+  "name": "closet-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ClosetAI digital wardrobe app",
+  "scripts": {
+    "start": "python -m uvicorn backend.main:app --reload --port 8001",
+    "test": "python -m unittest discover -s tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

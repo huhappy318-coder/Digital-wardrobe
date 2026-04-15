@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClosetAI - 搭配画布</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body data-page="canvas">
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>ClosetAI</span>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <a href="/" data-nav="dashboard" data-i18n="nav.home">首页</a>
+          <a href="/wardrobe.html" data-nav="wardrobe" data-i18n="nav.wardrobe">衣橱</a>
+          <a href="/outfit.html" data-nav="outfit" data-i18n="nav.outfit">搭配</a>
+          <a href="/tryon.html" data-nav="canvas" data-i18n="nav.canvas">画布</a>
+          <a href="/suggestion.html" data-nav="suggestion" data-i18n="nav.suggestion">推荐</a>
+        </nav>
+        <div class="topbar-actions">
+          <div class="lang-switch" aria-label="语言切换">
+            <button type="button" class="lang-toggle" data-lang-option="zh">中文</button>
+            <button type="button" class="lang-toggle" data-lang-option="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero-panel panel">
+        <div class="eyebrow">Canvas</div>
+        <h1 data-i18n="canvas.heroTitle">搭配画布</h1>
+        <p data-i18n="canvas.heroDesc">把衣橱单品拖到空白画布上，自由调整位置、大小、旋转和层级。</p>
+      </section>
+
+      <section class="layout-three canvas-layout">
+        <aside class="panel sidebar-panel stack">
+          <div class="section-title">
+            <h2 data-i18n="canvas.wardrobeTitle">衣橱</h2>
+            <p data-i18n="canvas.selectHint">选择一个单品来编辑位置。</p>
+          </div>
+          <div id="canvas-wardrobe-list" class="palette-list"></div>
+          <button id="add-first-btn" type="button" class="btn btn-secondary" data-i18n="canvas.addFirstItem">先添加一件</button>
+        </aside>
+
+        <section class="panel stack canvas-shell">
+          <div class="canvas-header">
+            <div class="field">
+              <label for="canvas-name-input" data-i18n="canvas.outfitName">搭配名称</label>
+              <input id="canvas-name-input" type="text" value="未命名搭配" />
+            </div>
+            <div class="toolbar">
+              <button id="save-outfit-btn" type="button" class="btn" data-i18n="canvas.saveOutfit">保存搭配</button>
+              <button id="clear-canvas-btn" type="button" class="btn btn-secondary" data-i18n="canvas.clear">清空</button>
+            </div>
+          </div>
+          <div id="canvas-stage" class="canvas-stage"></div>
+        </section>
+
+        <aside class="panel sidebar-panel stack">
+          <div class="section-title">
+            <h2 data-i18n="canvas.selectedTitle">已选单品</h2>
+          </div>
+          <div id="canvas-selected-panel" class="selected-panel"></div>
+        </aside>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

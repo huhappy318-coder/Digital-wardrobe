@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClosetAI - 已保存搭配</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body data-page="outfit">
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>ClosetAI</span>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <a href="/" data-nav="dashboard" data-i18n="nav.home">首页</a>
+          <a href="/wardrobe.html" data-nav="wardrobe" data-i18n="nav.wardrobe">衣橱</a>
+          <a href="/outfit.html" data-nav="outfit" data-i18n="nav.outfit">搭配</a>
+          <a href="/tryon.html" data-nav="canvas" data-i18n="nav.canvas">画布</a>
+          <a href="/suggestion.html" data-nav="suggestion" data-i18n="nav.suggestion">推荐</a>
+        </nav>
+        <div class="topbar-actions">
+          <div class="lang-switch" aria-label="语言切换">
+            <button type="button" class="lang-toggle" data-lang-option="zh">中文</button>
+            <button type="button" class="lang-toggle" data-lang-option="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero-panel panel">
+        <div class="eyebrow">Outfits</div>
+        <h1 data-i18n="outfit.heroTitle">已保存搭配</h1>
+        <p data-i18n="outfit.heroDesc">查看本地保存的画布组合，并把它们重新加载到画布中继续编辑。</p>
+      </section>
+
+      <section class="layout-two">
+        <section class="panel stack">
+          <div class="section-title">
+            <h2 data-i18n="outfit.listTitle">已保存搭配</h2>
+            <p data-i18n="outfit.listDesc">本地保存的组合记录。</p>
+          </div>
+          <div id="saved-outfits-list" class="stack"></div>
+        </section>
+
+        <aside class="panel stack">
+          <div class="section-title">
+            <h2 data-i18n="outfit.openCanvasTitle">打开画布</h2>
+            <p data-i18n="outfit.openCanvasDesc">进入画布继续编辑当前草稿。</p>
+          </div>
+          <button id="open-canvas-btn" type="button" class="btn" data-i18n="outfit.openCanvas">打开画布</button>
+        </aside>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

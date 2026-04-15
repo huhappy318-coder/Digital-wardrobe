@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClosetAI - 智能推荐</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body data-page="suggestion">
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>ClosetAI</span>
+        </div>
+        <nav class="nav" aria-label="主导航">
+          <a href="/" data-nav="dashboard" data-i18n="nav.home">首页</a>
+          <a href="/wardrobe.html" data-nav="wardrobe" data-i18n="nav.wardrobe">衣橱</a>
+          <a href="/outfit.html" data-nav="outfit" data-i18n="nav.outfit">搭配</a>
+          <a href="/tryon.html" data-nav="canvas" data-i18n="nav.canvas">画布</a>
+          <a href="/suggestion.html" data-nav="suggestion" data-i18n="nav.suggestion">推荐</a>
+        </nav>
+        <div class="topbar-actions">
+          <div class="lang-switch" aria-label="语言切换">
+            <button type="button" class="lang-toggle" data-lang-option="zh">中文</button>
+            <button type="button" class="lang-toggle" data-lang-option="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero-panel panel">
+        <div class="eyebrow">AI</div>
+        <h1 data-i18n="suggestion.heroTitle">智能推荐</h1>
+        <p data-i18n="suggestion.heroDesc">结合衣橱和当前画布，向后端请求搭配建议。</p>
+      </section>
+
+      <section class="layout-two">
+        <section class="panel stack">
+          <div class="section-title">
+            <h2 data-i18n="suggestion.providerTitle">服务状态</h2>
+          </div>
+          <div id="provider-status"></div>
+          <button id="provider-test-btn" type="button" class="btn btn-secondary" data-i18n="suggestion.providerTest">测试服务</button>
+          <div id="provider-test-result"></div>
+        </section>
+
+        <section class="panel stack">
+          <div class="section-title">
+            <h2 data-i18n="suggestion.generateTitle">生成推荐</h2>
+          </div>
+          <form id="suggestion-form" class="card-form">
+            <div class="form-grid">
+              <label class="field">
+                <span data-i18n="suggestion.occasion">场景</span>
+                <select id="suggestion-occasion">
+                  <option value="any" data-i18n="options.occasion.any">不限</option>
+                  <option value="casual" data-i18n="options.occasion.casual">休闲</option>
+                  <option value="work" data-i18n="options.occasion.work">通勤</option>
+                  <option value="formal" data-i18n="options.occasion.formal">正式</option>
+                  <option value="travel" data-i18n="options.occasion.travel">旅行</option>
+                  <option value="sports" data-i18n="options.occasion.sports">运动</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n="suggestion.weather">天气</span>
+                <select id="suggestion-weather">
+                  <option value="any" data-i18n="options.weather.any">不限</option>
+                  <option value="warm" data-i18n="options.weather.warm">温暖</option>
+                  <option value="cool" data-i18n="options.weather.cool">清凉</option>
+                  <option value="rainy" data-i18n="options.weather.rainy">下雨</option>
+                  <option value="cold" data-i18n="options.weather.cold">寒冷</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n="suggestion.style">风格</span>
+                <select id="suggestion-style">
+                  <option value="any" data-i18n="options.style.any">不限</option>
+                  <option value="minimal" data-i18n="options.style.minimal">极简</option>
+                  <option value="smart-casual" data-i18n="options.style.smart-casual">轻商务</option>
+                  <option value="street" data-i18n="options.style.street">街头</option>
+                  <option value="classic" data-i18n="options.style.classic">经典</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n="suggestion.colorPreference">颜色偏好</span>
+                <select id="suggestion-color">
+                  <option value="any" data-i18n="options.color.any">不限</option>
+                  <option value="neutral" data-i18n="options.color.neutral">中性色</option>
+                  <option value="dark" data-i18n="options.color.dark">深色</option>
+                  <option value="light" data-i18n="options.color.light">浅色</option>
+                  <option value="colorful" data-i18n="options.color.colorful">彩色</option>
+                </select>
+              </label>
+              <label class="field">
+                <span data-i18n="suggestion.limit">数量</span>
+                <input id="suggestion-limit" type="number" min="1" max="6" value="3" />
+              </label>
+            </div>
+            <label class="field">
+              <span data-i18n="suggestion.prompt">提示词</span>
+              <textarea id="suggestion-prompt" data-i18n-placeholder="suggestion.prompt" placeholder="给模型的一句补充说明"></textarea>
+            </label>
+            <label class="checkbox-row">
+              <input id="include-canvas" type="checkbox" checked />
+              <span data-i18n="suggestion.includeCanvas">包含当前画布单品</span>
+            </label>
+            <button id="generate-suggestion-btn" type="submit" class="btn" data-i18n="suggestion.generate">生成推荐</button>
+          </form>
+          <div id="suggestion-results" class="stack"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
