@@ -1,16 +1,17 @@
 {
-  "name": "closet-ai",
-  "version": "1.0.0",
-  "description": "ClosetAI 是一个基于 AI 的智能衣橱管理和穿搭推荐系统，帮助用户更好地管理衣物并获取个性化的穿搭建议。",
-  "main": "test_frontend.spec.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd frontend && python -m http.server 8000"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "zhida-digital-wardrobe",
+  "version": "2.0.0",
+  "description": "本地优先的数字衣橱、穿搭推荐和试衣间演示项目。",
+  "private": true,
   "type": "commonjs",
+  "scripts": {
+    "dev": "python -m uvicorn backend.main:app --reload --port 8001",
+    "start": "python -m http.server 8000 -d public",
+    "build": "node scripts/validate.js",
+    "lint": "node scripts/validate.js",
+    "typecheck": "node scripts/validate.js",
+    "test": "npx playwright test"
+  },
   "devDependencies": {
     "@playwright/test": "^1.58.2"
   }

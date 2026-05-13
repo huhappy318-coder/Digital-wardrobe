@@ -1,42 +1,36 @@
 import { test, expect } from '@playwright/test';
 
-test('测试衣橱管理页面的基本功能', async ({ page }) => {
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
+test('衣橱管理页面基础功能可用', async ({ page }) => {
+  await page.goto('/wardrobe.html');
 
-  // 检查页面标题
   await expect(page).toHaveTitle('衣橱管理 - 直搭数字衣柜');
-
-  // 检查页面元素是否存在
-  await expect(page.locator('.wardrobe-container')).toBeVisible();
-  await expect(page.locator('.upload-section')).toBeVisible();
-  await expect(page.locator('.wardrobe-display')).toBeVisible();
-
-  // 检查上传区域
-  await expect(page.locator('#uploadArea')).toBeVisible();
-
-  // 检查分类筛选
-  await expect(page.locator('#category-filter')).toBeVisible();
+  await expect(page.locator('.workspace')).toBeVisible();
+  await expect(page.locator('#uploadZone')).toBeVisible();
+  await expect(page.locator('#wardrobeGrid')).toBeVisible();
+  await expect(page.locator('#categoryFilter')).toBeVisible();
 });
 
-test('测试分类筛选功能', async ({ page }) => {
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
+test('分类筛选和搭配分析可用', async ({ page }) => {
+  await page.goto('/wardrobe.html');
 
-  // 选择上衣分类
-  await page.locator('#category-filter').selectOption('上衣');
+  await page.locator('#categoryFilter').selectOption('top');
+  await expect(page.locator('#wardrobeCount')).toBeVisible();
+  await page.locator('#categoryFilter').selectOption('all');
 
-  // 等待衣橱内容更新
-  await page.waitForTimeout(1000);
-
-  // 选择全部分类
-  await page.locator('#category-filter').selectOption('all');
+  const selectButtons = page.locator('[data-action="select"]');
+  await selectButtons.nth(0).click();
+  await selectButtons.nth(1).click();
+  await expect(page.locator('#analyzeSelection')).toBeEnabled();
+  await page.locator('#analyzeSelection').click();
+  await expect(page.locator('#analysisResult')).toBeVisible();
 });
 
-test('测试AI搭配分析功能可用性', async ({ page }) => {
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
+test('今日穿搭可以生成并记录', async ({ page }) => {
+  await page.goto('/outfit.html');
 
-  // 检查搭配分析按钮是否存在
-  await expect(page.locator('#analyze-outfit')).toBeVisible();
+  await expect(page.locator('#weatherCard')).toBeVisible();
+  await page.locator('#generateOutfit').click();
+  await expect(page.locator('#outfitResult')).toBeVisible();
+  await page.locator('#wearOutfit').click();
+  await expect(page.locator('.notification.success')).toBeVisible();
 });

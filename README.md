@@ -1,152 +1,133 @@
-# ClosetAI - AI驱动的数字衣橱管理工具
+# 直搭数字衣柜
 
-ClosetAI 是一个基于 AI 的智能衣橱管理和穿搭推荐系统，帮助用户更好地管理衣物并获取个性化的穿搭建议。
+直搭数字衣柜是一个本地优先的轻量级衣橱管理和穿搭推荐项目。它可以录入衣物、维护分类与风格、按天气生成今日穿搭、输出搭配建议，并提供一个 2D 试衣间用于快速检查单品组合。
 
-## 功能特性
+## 核心功能
 
-### 1. 衣橱管理
-- 添加、查看、删除衣物
-- 衣物分类（上衣、裤子、裙子、外套、鞋子、配饰等）
-- 季节标签（春、夏、秋、冬、全年）
-- 颜色识别和分类
-- 本地存储管理
-- 图片识别和分析
-
-### 2. 穿搭推荐
-- 根据天气和场合生成穿搭建议
-- 基于 Claude API 的智能推荐
-- 天气选项：晴天、雨天、阴天、雪天
-- 场合选项：休闲、工作、正式、运动
-
-### 3. 智能功能
-- 衣物识别和分类
-- 颜色分析
-- 穿搭历史记录
-- 个性化偏好设置
-- 搭配协调度分析
-- 评分和改进建议
-
-### 4. 错误处理
-- 上传非图片文件 → 提示「请上传图片格式文件（JPG/PNG/WEBP）」
-- Claude API 请求失败 → 提示「AI识别暂时不可用，请稍后重试」
-- 天气API Key未配置 → 引导用户输入Key的说明弹窗
-- 衣橱为空时点击推荐 → 提示「请先添加至少3件衣服再来获取推荐」
-- 图片过大（>5MB）→ 提示「图片过大，请压缩后上传」
-
-## 本地启动步骤
-
-### 1. 安装依赖
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-### 2. 配置环境变量
-创建 `.env` 文件并添加您的 API 密钥：
-
-```
-ANTHROPIC_API_KEY=your-api-key-here
-```
-
-### 3. 启动后端服务
-```bash
-cd backend
-python -m uvicorn main:app --reload --port 8001
-```
-
-服务器将在 `http://localhost:8001` 启动。
-
-### 4. 运行前端
-直接在浏览器中打开 `http://localhost:8001/` 即可使用应用程序。
+- 衣橱管理：上传衣物图片，记录名称、分类、颜色、风格、季节和穿着次数。
+- 今日穿搭：查询城市天气，并根据衣橱数据生成可直接穿的组合。
+- 搭配建议：无 API Key 时使用本地规则生成建议；填写 OpenAI 兼容 API Key 后可调用模型增强。
+- 试衣间：把单品放到 2D 试衣板上，快速检查颜色和层次。
+- 数据维护：支持本地 LocalStorage、示例数据恢复、JSON 导入和导出。
+- 部署友好：静态前端位于 `public/`，后端 API 位于 `backend/` 和 `api/`。
 
 ## 技术栈
 
-### 后端
-- **FastAPI** - 现代、快速的 Web 框架
-- **Qwen-VL Plus API** - 强大的 AI 语言模型（兼容 OpenAI 格式）
-- **Uvicorn** - ASGI 服务器
-- **python-dotenv** - 环境变量管理
-- **aiofiles** - 静态文件托管支持
+- 前端：原生 HTML、CSS、JavaScript
+- 存储：浏览器 LocalStorage
+- 后端：FastAPI、Uvicorn、httpx、OpenAI Python SDK
+- 部署：Vercel 静态页面 + Python Serverless API，也可部署到支持 Python 的平台
 
-### 前端
-- **原生 HTML/CSS/JavaScript** - 轻量级开发
-- **LocalStorage** - 浏览器本地存储
-- **响应式设计** - 适配不同设备
-- **和风天气API** - 天气数据获取
-- **SVG 图标** - 美观的用户界面
+## 本地运行
 
-## API 接口
+安装前端校验依赖：
 
-### POST /api/claude
-- **功能**：调用 Qwen-VL Plus API 进行自然语言处理
-- **参数**：
-  - `messages`：消息数组，包含用户和助手的对话历史
-- **返回**：AI 的响应内容
+```bash
+npm install
+```
 
-### POST /api/analyze-image
-- **功能**：分析衣服图片，识别颜色、分类、风格、季节等信息
-- **参数**：
-  - `image_base64`：图片的 base64 编码字符串
-- **返回**：包含识别结果的 JSON 数据
+安装后端依赖：
 
-### GET /
-- **功能**：根路由，返回首页 HTML
-- **返回**：index.html 页面
+```bash
+pip install -r requirements.txt
+```
 
-### GET /{page}.html
-- **功能**：页面路由，返回指定页面的 HTML
-- **返回**：指定页面的 HTML 内容
+启动完整后端和静态站点：
 
-## 使用说明
+```bash
+npm run dev
+```
 
-### 添加衣物
-1. 点击"管理衣橱"进入衣橱管理页面
-2. 点击"添加新衣服"或者直接拖拽图片到上传区域
-3. 上传图片后，AI 会自动识别衣物信息
-4. 确认识别结果后，点击"加入衣橱"按钮
+访问：
 
-### 生成穿搭推荐
-1. 点击"今日穿搭"进入推荐页面
-2. 输入城市名称，获取天气信息
-3. 点击"为你推荐今日穿搭"按钮
-4. 查看 AI 推荐的穿搭方案和理由
+```text
+http://localhost:8001
+```
 
-### 搭配分析
-1. 在衣橱页面选择 2-5 件衣服
-2. 点击"AI 搭配分析"按钮
-3. 查看搭配协调度评分和改进建议
+只预览静态前端：
 
-### 筛选衣橱
-1. 使用分类下拉菜单筛选特定类型的衣物
-2. 查看不同季节的衣物
+```bash
+npm start
+```
 
-## 错误处理
+访问：
 
-### 1. 上传非图片文件
-系统会检查文件类型，只允许上传 JPG/PNG/WEBP 格式的图片，并显示相应的错误提示。
+```text
+http://localhost:8000
+```
 
-### 2. Claude API 请求失败
-如果 AI 识别暂时不可用，系统会显示友好的提示信息，而不会崩溃。
+静态模式下天气和 AI API 会自动回退到本地演示逻辑，页面仍可操作。
 
-### 3. 天气API Key未配置
-如果未配置天气API Key，系统会显示提示信息并返回模拟天气数据，确保应用程序可以正常使用。
+## 构建与检查
 
-### 4. 衣橱为空时点击推荐
-如果衣橱中的衣物少于3件，系统会提示用户先添加至少3件衣服再来获取推荐。
+```bash
+npm run build
+npm run lint
+npm run typecheck
+```
 
-### 5. 图片过大（>5MB）
-如果上传的图片大小超过 5MB，系统会显示提示信息，建议用户压缩后上传。
+当前项目没有打包步骤，`build/lint/typecheck` 会执行 `scripts/validate.js`，检查：
 
-## 手机端显示
+- `public/` 关键页面和静态资源是否存在
+- HTML `<script>` 标签是否闭合
+- 页面是否引用公共 CSS/JS
+- 公共 JS 是否能通过语法解析
 
-应用程序采用响应式设计，适配不同屏幕尺寸，在手机端也能正常显示和使用。
+## 环境变量
 
-## 截图展示区
+复制 `.env.example` 为 `.env` 或 `.env.local`，按需填写：
 
-**添加截图**
+```bash
+BACKEND_PORT=8001
+CORS_ALLOW_ORIGINS=*
+QWEN_API_KEY=
+QWEN_MODEL=qwen-plus
+QWEN_VL_MODEL=qwen-vl-plus
+```
 
-（提示：在此处添加应用程序的截图，以便用户更好地了解功能和界面）
+`QWEN_API_KEY` 为空时，后端不会报错，会返回本地兜底结果，保证演示可用。
 
-## 许可证
+## 部署说明
 
-MIT License
+### Vercel
+
+项目已包含 `vercel.json`：
+
+- 静态页面从 `public/` 发布
+- API 入口为 `api/index.py`
+- `/api/*` 转发到 FastAPI
+
+部署前请在 Vercel 环境变量中配置 `QWEN_API_KEY`（可选）。
+
+### Cloudflare Pages / Netlify
+
+如果只部署静态版：
+
+- Publish directory: `public`
+- Build command: `npm run build`
+
+静态部署没有后端 API，但前端已内置天气和 AI 的本地兜底，仍可演示核心流程。
+
+## 项目结构
+
+```text
+public/          部署用静态前端
+frontend/        前端源码镜像，便于本地查看和继续维护
+backend/main.py  FastAPI 本地服务和 API 实现
+api/index.py     Vercel Python API 入口
+scripts/         项目校验脚本
+```
+
+## 已知问题
+
+- 图片识别依赖 `QWEN_API_KEY`，未配置时只能填充本地默认结果。
+- 试衣间是 2D 试衣板，不再依赖原先不稳定的 FBX/Three.js 加载链路。
+- LocalStorage 数据只保存在当前浏览器，跨设备同步需要后续接入账号或数据库。
+
+## 后续优化方向
+
+- 增加真实数据库和账号体系，实现多设备同步。
+- 为衣物图片增加压缩、裁剪和背景清理。
+- 将穿搭推荐拆成可测试的规则引擎，并引入自动化单元测试。
+- 增加更细的颜色体系、场合标签和换季整理视图。
+- 增加 CI，在 PR 中自动运行 `npm run build` 和后端导入检查。

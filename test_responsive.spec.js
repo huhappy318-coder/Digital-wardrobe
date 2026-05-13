@@ -1,58 +1,32 @@
 import { test, expect } from '@playwright/test';
 
-test('测试响应式设计 - 移动端', async ({ page }) => {
-  // 模拟iPhone 12 Pro
+test('移动端导航和衣橱布局可用', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/wardrobe.html');
 
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
-
-  // 检查页面元素是否可见
-  await expect(page.locator('.wardrobe-container')).toBeVisible();
-  await expect(page.locator('.upload-section')).toBeVisible();
-  await expect(page.locator('.wardrobe-display')).toBeVisible();
-
-  // 检查导航菜单是否响应式
   await expect(page.locator('header')).toBeVisible();
-
-  // 检查分类筛选是否可用
-  await expect(page.locator('#category-filter')).toBeVisible();
+  await expect(page.locator('#menuButton')).toBeVisible();
+  await page.locator('#menuButton').click();
+  await expect(page.locator('#mobileNav')).toHaveClass(/open/);
+  await expect(page.locator('#uploadZone')).toBeVisible();
+  await expect(page.locator('#wardrobeGrid')).toBeVisible();
 });
 
-test('测试响应式设计 - 平板', async ({ page }) => {
-  // 模拟iPad Air
+test('平板端核心区域可见', async ({ page }) => {
   await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('/wardrobe.html');
 
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
-
-  // 检查页面元素是否可见
-  await expect(page.locator('.wardrobe-container')).toBeVisible();
-  await expect(page.locator('.upload-section')).toBeVisible();
-  await expect(page.locator('.wardrobe-display')).toBeVisible();
-
-  // 检查导航菜单是否响应式
-  await expect(page.locator('header')).toBeVisible();
-
-  // 检查分类筛选是否可用
-  await expect(page.locator('#category-filter')).toBeVisible();
+  await expect(page.locator('.workspace')).toBeVisible();
+  await expect(page.locator('#itemForm')).toBeVisible();
+  await expect(page.locator('#wardrobeGrid')).toBeVisible();
 });
 
-test('测试响应式设计 - 桌面端', async ({ page }) => {
-  // 模拟桌面端
-  await page.setViewportSize({ width: 1920, height: 1080 });
+test('桌面端试衣间可用', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 960 });
+  await page.goto('/tryon.html');
 
-  // 导航到衣橱管理页面
-  await page.goto('http://localhost:8000/frontend/wardrobe.html');
-
-  // 检查页面元素是否可见
-  await expect(page.locator('.wardrobe-container')).toBeVisible();
-  await expect(page.locator('.upload-section')).toBeVisible();
-  await expect(page.locator('.wardrobe-display')).toBeVisible();
-
-  // 检查导航菜单是否响应式
-  await expect(page.locator('header')).toBeVisible();
-
-  // 检查分类筛选是否可用
-  await expect(page.locator('#category-filter')).toBeVisible();
+  await expect(page.locator('.tryon-layout')).toBeVisible();
+  await expect(page.locator('.mannequin')).toBeVisible();
+  await page.locator('[data-wear]').first().click();
+  await expect(page.locator('#wornSummary .tag')).toHaveCount(1);
 });

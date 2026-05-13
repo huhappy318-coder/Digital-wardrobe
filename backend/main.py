@@ -1,190 +1,46 @@
+import json
+import os
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+import httpx
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List, Dict, Any
-from openai import OpenAI
-import os
-from dotenv import load_dotenv
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-import httpx
+from fastapi.staticfiles import StaticFiles
+from openai import OpenAI
+from pydantic import BaseModel, Field
 
-# 获取当前文件目录
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
-
-# 加载环境变量
 load_dotenv()
 
-app = FastAPI(title="ClosetAI Backend")
+BASE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR.parent
+PUBLIC_DIR = ROOT_DIR / 'public'
 
-# 配置 CORS
+app = FastAPI(title='Zhida Digital Wardrobe', version='2.0.0')
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=os.getenv('CORS_ALLOW_ORIGINS', '*').split(','),
+    allow_credentials=False,
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
-# 挂载前端静态文件
-app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
-# 新增天气获取接口
-@app.get("/api/weather")
-async def get_weather(city: str):
-    try:
-        # wttr.in 免费天气接口，无需API Key
-        url = f"https://wttr.in/{city}?format=j1&lang=zh"
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, timeout=10)
-            data = response.json()
-
-            current = data['current_condition'][0]
-            weather_desc = current['weatherDesc'][0]['value']
-            temp_c = current['temp_C']
-            feels_like = current['FeelsLikeC']
-            humidity = current['humidity']
-
-            return {
-                "city": city,
-                "temp": int(temp_c),
-                "feels_like": int(feels_like),
-                "humidity": humidity,
-                "description": weather_desc,
-                "success": True
-            }
-    except Exception as e:
-        return {"success": False, "error": str(e)}
-
-# 获取当前文件目录
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
-
-# 加载环境变量
-load_dotenv()
-
-app = FastAPI(title="ClosetAI Backend")
-
-# 配置 CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# 挂载前端静态文件
-app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
-
-# 初始化 OpenAI 客户端（兼容千问 API）
-api_key = os.getenv("QWEN_API_KEY")
-if api_key:
-    client = OpenAI(
-        api_key=api_key,
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-    )
-else:
-    client = None
-    print("警告：QWEN_API_KEY 未设置，API 功能将不可用")
-
-# 请求模型
-class ClaudeRequest(BaseModel):
+class ChatRequest(BaseModel):
     messages: List[Dict[str, Any]]
 
-# 响应模型
-class ClaudeResponse(BaseModel):
+
+class ChatResponse(BaseModel):
     content: str
-    model: str
+    model: str = 'local-fallback'
+
 
 class ImageAnalysisRequest(BaseModel):
-    image_base64: str
+    image_base64: str = Field(..., min_length=16)
 
-@app.post("/api/claude", response_model=ClaudeResponse)
-async def call_claude_api(request: ClaudeRequest):
-    """
-    转发请求到千问 API 的接口（兼容 OpenAI 格式）
-    """
-    api_key = os.getenv("QWEN_API_KEY")
-
-    if not api_key or not client:
-        raise HTTPException(status_code=500, detail="QWEN_API_KEY not configured")
-
-    try:
-        response = client.chat.completions.create(
-            model="qwen-vl-plus",
-            messages=request.messages,
-            max_tokens=4096,
-            response_format={"type": "json_object"}
-        )
-
-        return ClaudeResponse(
-            content=response.choices[0].message.content,
-            model=response.model
-        )
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error calling Qwen API: {str(e)}")
-
-@app.post("/api/analyze-image")
-async def analyze_image(request: ImageAnalysisRequest):
-    """
-    分析衣服图片，识别颜色、分类、风格、季节等信息
-    """
-    if not client:
-        raise HTTPException(status_code=500, detail="QWEN_API_KEY not configured")
-
-    try:
-        messages = [
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": """
-你是一个专业的时尚分析师，负责识别图片中的衣服信息。
-请分析图片中的衣物，并严格按照以下格式返回 JSON 数据：
-
-{
-  "category": "上衣/裤子/裙子/外套/鞋子/配件",
-  "color": "主色名称",
-  "style": "休闲/正式/运动/优雅/街头",
-  "season": "春/夏/秋/冬/全年",
-  "name": "对这件衣服的简短描述，10字以内"
-}
-
-注意：
-1. 只返回 JSON 格式的内容，不要包含其他文本
-2. category 必须从给定的选项中选择
-3. color 必须是中文颜色描述
-4. style 必须从给定的选项中选择
-5. season 必须从给定的选项中选择
-6. name 必须简洁，不超过10个字符
-
-请确保JSON格式正确，字段值符合要求。
-"""
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/jpeg;base64,{request.image_base64}"
-                        }
-                    }
-                ]
-            }
-        ]
-
-        response = client.chat.completions.create(
-            model="qwen-vl-plus",
-            messages=messages,
-            max_tokens=1024
-        )
-
-        return {"content": response.choices[0].message.content}
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error analyzing image: {str(e)}")
 
 class AISuggestionRequest(BaseModel):
     messages: List[Dict[str, Any]]
@@ -192,44 +48,169 @@ class AISuggestionRequest(BaseModel):
     model: str
     api_key: str
 
-@app.post("/api/ai-suggest")
-async def get_ai_suggestion(request: AISuggestionRequest):
-    """
-    动态调用不同 AI 模型的接口（OpenAI 兼容格式）
-    """
-    try:
-        # 动态创建 OpenAI 客户端
-        client = OpenAI(
-            api_key=request.api_key,
-            base_url=request.base_url
-        )
 
+def get_qwen_client() -> Optional[OpenAI]:
+    api_key = os.getenv('QWEN_API_KEY')
+    if not api_key:
+        return None
+    return OpenAI(api_key=api_key, base_url='https://dashscope.aliyuncs.com/compatible-mode/v1')
+
+
+def local_chat_response(messages: List[Dict[str, Any]]) -> str:
+    joined = '\n'.join(str(message.get('content', '')) for message in messages)
+    if 'JSON' in joined.upper() or 'json' in joined:
+        return json.dumps(
+            {
+                'outfit': [],
+                'reason': '当前未配置模型 API，系统已使用本地规则生成穿搭。请在前端继续查看本地推荐结果。',
+                'tip': '补充上衣、下装、鞋履三类基础单品后，推荐会更稳定。',
+            },
+            ensure_ascii=False,
+        )
+    return '当前未配置 QWEN_API_KEY，已启用本地兜底建议：保持主色简洁，优先选择低频单品，并按天气增减外套。'
+
+
+@app.get('/api/health')
+async def health() -> Dict[str, Any]:
+    return {'ok': True, 'static_dir': str(PUBLIC_DIR), 'has_qwen_key': bool(os.getenv('QWEN_API_KEY'))}
+
+
+@app.get('/api/weather')
+async def get_weather(city: str = '上海') -> Dict[str, Any]:
+    try:
+        url = f'https://wttr.in/{city}?format=j1&lang=zh'
+        async with httpx.AsyncClient(timeout=8, follow_redirects=True) as client:
+            response = await client.get(url)
+            response.raise_for_status()
+            data = response.json()
+
+        current = data['current_condition'][0]
+        return {
+            'success': True,
+            'city': city,
+            'temp': int(current['temp_C']),
+            'feels_like': int(current['FeelsLikeC']),
+            'humidity': int(current['humidity']),
+            'description': current['weatherDesc'][0]['value'],
+        }
+    except Exception as exc:
+        return {
+            'success': False,
+            'city': city,
+            'temp': 23,
+            'feels_like': 23,
+            'humidity': 58,
+            'description': '多云',
+            'error': str(exc),
+        }
+
+
+@app.post('/api/claude', response_model=ChatResponse)
+async def call_qwen_api(request: ChatRequest) -> ChatResponse:
+    client = get_qwen_client()
+    if client is None:
+        return ChatResponse(content=local_chat_response(request.messages))
+
+    try:
+        response = client.chat.completions.create(
+            model=os.getenv('QWEN_MODEL', 'qwen-plus'),
+            messages=request.messages,
+            max_tokens=2048,
+        )
+        return ChatResponse(content=response.choices[0].message.content or '', model=response.model)
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f'Qwen API request failed: {exc}') from exc
+
+
+@app.post('/api/analyze-image')
+async def analyze_image(request: ImageAnalysisRequest) -> Dict[str, Any]:
+    client = get_qwen_client()
+    if client is None:
+        return {
+            'success': False,
+            'content': json.dumps(
+                {
+                    'category': 'top',
+                    'color': '未标注',
+                    'style': '休闲',
+                    'season': 'all',
+                    'name': '新上传单品',
+                },
+                ensure_ascii=False,
+            ),
+        }
+
+    prompt = '''
+你是专业衣物识别助手。请只返回 JSON，不要返回 Markdown。
+字段要求：
+{
+  "category": "top/bottom/dress/outerwear/shoes/accessory",
+  "color": "中文颜色",
+  "style": "休闲/通勤/正式/运动/优雅/街头",
+  "season": "spring/summer/autumn/winter/all",
+  "name": "10字以内中文单品名"
+}
+'''
+
+    try:
+        response = client.chat.completions.create(
+            model=os.getenv('QWEN_VL_MODEL', 'qwen-vl-plus'),
+            messages=[
+                {
+                    'role': 'user',
+                    'content': [
+                        {'type': 'text', 'text': prompt},
+                        {
+                            'type': 'image_url',
+                            'image_url': {'url': f'data:image/jpeg;base64,{request.image_base64}'},
+                        },
+                    ],
+                }
+            ],
+            max_tokens=512,
+        )
+        return {'success': True, 'content': response.choices[0].message.content or '{}'}
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f'Image analysis failed: {exc}') from exc
+
+
+@app.post('/api/ai-suggest', response_model=ChatResponse)
+async def get_ai_suggestion(request: AISuggestionRequest) -> ChatResponse:
+    if not request.api_key.strip():
+        raise HTTPException(status_code=400, detail='api_key is required')
+
+    try:
+        client = OpenAI(api_key=request.api_key, base_url=request.base_url)
         response = client.chat.completions.create(
             model=request.model,
             messages=request.messages,
-            max_tokens=4096,
-            response_format={"type": "json_object"}
+            max_tokens=2048,
         )
+        return ChatResponse(content=response.choices[0].message.content or '', model=response.model)
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f'AI suggestion request failed: {exc}') from exc
 
-        return ClaudeResponse(
-            content=response.choices[0].message.content,
-            model=response.model
-        )
 
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error calling AI API: {str(e)}")
+@app.get('/')
+async def root() -> FileResponse:
+    return FileResponse(PUBLIC_DIR / 'index.html')
 
-@app.get("/")
-async def root():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
-@app.get("/{page}.html")
-async def pages(page: str):
-    file_path = os.path.join(FRONTEND_DIR, f"{page}.html")
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    raise HTTPException(status_code=404, detail="Page not found")
+@app.get('/{page_name}.html')
+async def html_page(page_name: str) -> FileResponse:
+    file_path = PUBLIC_DIR / f'{page_name}.html'
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail='Page not found')
+    return FileResponse(file_path)
 
-if __name__ == "__main__":
+
+if PUBLIC_DIR.exists():
+    app.mount('/frontend', StaticFiles(directory=PUBLIC_DIR), name='frontend-compat')
+    app.mount('/static', StaticFiles(directory=PUBLIC_DIR), name='static-compat')
+    app.mount('/', StaticFiles(directory=PUBLIC_DIR, html=True), name='public')
+
+
+if __name__ == '__main__':
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001, reload=True)
+
+    uvicorn.run('backend.main:app', host='0.0.0.0', port=int(os.getenv('BACKEND_PORT', '8001')), reload=True)
